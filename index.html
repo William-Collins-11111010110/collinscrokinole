@@ -47,6 +47,7 @@ td { padding: 8px 10px; white-space: nowrap; }
 .pill { display: inline-block; padding: 2px 8px; border-radius: 8px; font-size: 0.65rem; font-weight: 700; }
 .pill-gold { background: #3d2800; color: #fbbf24; }
 .pill-silver { background: #1f2937; color: #9ca3af; }
+.pill-bronze { background: #3d2200; color: #d97706; }
 .pill-bronze { background: #2d1500; color: #fb923c; }
 .pill-day2 { background: #1e1b4b; color: #818cf8; }
 .pill-none { background: #111118; color: #4b5563; }
@@ -86,7 +87,8 @@ td { padding: 8px 10px; white-space: nowrap; }
 .ov-player-card:hover { transform: translateY(-2px); filter: brightness(1.08); }
 .ov-player-topbar { position: absolute; top: 0; left: 0; right: 0; height: 4px; }
 .ov-player-avatar-wrap { position: relative; width: 46px; height: 46px; margin: 4px auto 8px auto; }
-.ov-player-star-col { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 3px; align-items: center; font-size: 11px; line-height: 1; }
+.ov-player-star-col { position: absolute; left: 8px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 3px; align-items: center; font-size: 11px; line-height: 1; }
+.ov-player-star-col.doubles { left: auto; right: 8px; }
 .ov-player-rank { position: absolute; top: 10px; left: 10px; font-size: 0.62rem; font-weight: 800; color: var(--text-dim); }
 .ov-player-avatar { width: 46px; height: 46px; border-radius: 50%; margin: 0; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; font-weight: 800; color: #0a0a10; }
 .ov-player-name { font-size: 0.88rem; font-weight: 800; color: var(--text); margin-bottom: 6px; }
@@ -95,7 +97,7 @@ td { padding: 8px 10px; white-space: nowrap; }
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
-.ov-player-stats { display: flex; justify-content: center; gap: 12px; font-size: 0.66rem; color: var(--text-mid); padding-top: 8px; border-top: 1px solid var(--border); }
+.ov-player-stats { display: flex; justify-content: center; align-items: center; gap: 8px; font-size: 0.66rem; color: var(--text-mid); padding-top: 8px; border-top: 1px solid var(--border); }
 .ov-player-stat-val { font-weight: 700; color: var(--text); }
 .ov-player-dbl { margin-top: 8px; }
 
@@ -194,6 +196,18 @@ h2 { font-size: 0.85rem; font-weight: 700; color: var(--text-mid); margin-bottom
 
 /* HALL OF FAME */
 .hof-champion-card { background: linear-gradient(135deg,#1a1a26,#2d1e0a); border: 1px solid #fbbf2444; border-radius: 16px; padding: 20px; text-align: center; position: relative; overflow: hidden; }
+.hof-champion-card.doubles { background: linear-gradient(135deg,#1a1a26,#0a2438); border: 1px solid #38bdf844; }
+.hof-champion-card.doubles .hof-champion-name { color: #38bdf8; }
+.hof-champion-badge { position: absolute; top: 10px; right: 10px; font-size: 0.55rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 7px; border-radius: 20px; }
+.hof-champion-badge.singles { background: #3d2800; color: #fbbf24; }
+.hof-champion-badge.doubles { background: #0e2d3d; color: #38bdf8; }
+.hof-section-label { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 9px; border-radius: 20px; display: inline-block; margin-bottom: 10px; }
+.hof-section-label.singles { background: #3d2800; color: #fbbf24; }
+.hof-section-label.doubles { background: #0e2d3d; color: #38bdf8; }
+
+.update-entry { margin-bottom: 24px; }
+.update-date { font-size: 1rem; font-weight: 800; color: var(--text); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.update-entry p { font-size: 0.8rem; color: var(--text-mid); line-height: 1.65; margin-bottom: 10px; }
 .hof-champion-year { font-size: 0.7rem; color: var(--text-dim); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
 .hof-champion-name { font-size: 1.5rem; font-weight: 900; color: #fbbf24; margin: 6px 0; }
 .hof-champion-sub { font-size: 0.72rem; color: var(--text-mid); }
@@ -212,6 +226,7 @@ h2 { font-size: 0.85rem; font-weight: 700; color: var(--text-mid); margin-bottom
 .hof-podium-row { display: flex; align-items: center; gap: 8px; padding: 5px 0; border-top: 1px solid #1a1a26; }
 .hof-podium-row:first-of-type { border-top: none; margin-top: 8px; }
 .hof-podium-medal { font-size: 0.95rem; width: 20px; text-align: center; }
+.hof-podium-rank { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; border-radius: 50%; background: var(--bg3); border: 1px solid var(--border); color: var(--text-dim); font-size: 0.6rem; font-weight: 800; }
 .hof-podium-name { font-weight: 700; font-size: 0.8rem; flex: 1; color: var(--text); }
 .hof-podium-detail { font-size: 0.72rem; color: var(--text-mid); font-weight: 600; }
 .hof-rivalry-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
@@ -265,6 +280,7 @@ h2 { font-size: 0.85rem; font-weight: 700; color: var(--text-mid); margin-bottom
   <button class="nav-tab" onclick="showPage('explain')">Explanations/Formulas</button>
   <button class="nav-tab" onclick="showPage('hof')"><svg width="14" height="14" viewBox="0 0 24 24" style="vertical-align:-2px;margin-right:2px"><path d="M7 3 H17 V9 A5 5 0 0 1 7 9 Z" fill="#c99a4e" stroke="#5c3620" stroke-width="1.1"/><path d="M7 4 H3.5 A2 2 0 0 0 5 7.8 L7 8.6" fill="none" stroke="#5c3620" stroke-width="1.1"/><path d="M17 4 H20.5 A2 2 0 0 1 19 7.8 L17 8.6" fill="none" stroke="#5c3620" stroke-width="1.1"/><rect x="10.5" y="13.3" width="3" height="4.2" fill="#7a5223"/><path d="M7.5 20 H16.5 L15.3 17.3 H8.7 Z" fill="#a5763a" stroke="#5c3620" stroke-width="1"/></svg>Hall of Records</button>
   <button class="nav-tab" onclick="showPage('photos')"><svg width="14" height="14" viewBox="0 0 24 24" style="vertical-align:-2px;margin-right:2px"><rect x="2" y="7" width="20" height="13" rx="2.5" fill="#a5763a" stroke="#5c3620" stroke-width="1.2"/><rect x="8.5" y="3" width="7" height="4" rx="1" fill="#7a5223" stroke="#5c3620" stroke-width="1"/><circle cx="12" cy="14" r="4.2" fill="#f4e4c1" stroke="#5c3620" stroke-width="1.2"/><circle cx="12" cy="14" r="2.1" fill="#5c3620"/><circle cx="18" cy="10" r="1" fill="#f4e4c1"/></svg>Photos</button>
+  <button class="nav-tab" onclick="showPage('updates')"><svg width="14" height="14" viewBox="0 0 24 24" style="vertical-align:-2px;margin-right:2px"><rect x="4" y="3" width="16" height="18" rx="1.5" fill="#f4e4c1" stroke="#5c3620" stroke-width="1.2"/><rect x="8.5" y="1.5" width="7" height="3" rx="1" fill="#a5763a" stroke="#5c3620" stroke-width="1"/><line x1="7.5" y1="9" x2="16.5" y2="9" stroke="#7a5223" stroke-width="1.2"/><line x1="7.5" y1="12.5" x2="16.5" y2="12.5" stroke="#7a5223" stroke-width="1.2"/><line x1="7.5" y1="16" x2="13" y2="16" stroke="#7a5223" stroke-width="1.2"/><circle cx="17.5" cy="16.5" r="3.2" fill="#5c6b47" stroke="#33401f" stroke-width="1"/><path d="M15.9 16.6 L16.9 17.6 L19.1 15.4" stroke="#f4e4c1" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Updates</button>
 </div>
 <div class="nav" id="christmas-subnav" style="display:none;background:#0a0a12;padding:8px 20px">
   <span style="font-size:0.65rem;color:var(--text-dim);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-right:6px">Christmas:</span>
@@ -276,7 +292,8 @@ h2 { font-size: 0.85rem; font-weight: 700; color: var(--text-mid); margin-bottom
 </div>
 <div class="nav" id="summer-subnav" style="display:none;background:#0a0a12;padding:8px 20px">
   <span style="font-size:0.65rem;color:var(--text-dim);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-right:6px">Summer:</span>
-  <button class="nav-tab sub-tab active" onclick="showSummerSubPage('dh2h')">Head to Head</button>
+  <button class="nav-tab sub-tab active" onclick="showSummerSubPage('leaderboard')">Leaderboard</button>
+  <button class="nav-tab sub-tab" onclick="showSummerSubPage('dh2h')">Head to Head</button>
   <button class="nav-tab sub-tab" onclick="showSummerSubPage('drecap')">Tournament Recap</button>
   <button class="nav-tab sub-tab" onclick="showSummerSubPage('dhistory')">Full Game History</button>
   <button class="nav-tab sub-tab" onclick="showSummerSubPage('delo')"><svg width="14" height="14" viewBox="0 0 32 32" style="vertical-align:-2px;margin-right:2px"><path d="M4 26 L12 10 L16 17 L20 8 L28 26 Z" fill="#5c6b47" stroke="#33401f" stroke-width="1.2" stroke-linejoin="round"/><path d="M20 8 L23 14 L17 14 Z" fill="#f4e4c1"/><path d="M12 10 L14.5 15 L9.5 15 Z" fill="#f4e4c1"/><path d="M4 26 L28 26" stroke="#33401f" stroke-width="0.8" opacity="0.5"/></svg>Elo History</button>
@@ -482,7 +499,7 @@ h2 { font-size: 0.85rem; font-weight: 700; color: var(--text-mid); margin-bottom
   <div class="card" id="explain-hof" style="margin-bottom:16px">
     <div class="card-title"><svg width="14" height="14" viewBox="0 0 24 24" style="vertical-align:-2px;margin-right:2px"><rect x="4" y="4" width="16" height="16" rx="1" fill="#f4e4c1" stroke="#a5763a" stroke-width="1"/><path d="M4 6.5 A2.5 2.5 0 0 1 6.5 4 H4 Z" fill="#c99a4e"/><rect x="2" y="4" width="2.5" height="16" rx="1.25" fill="#a5763a" stroke="#5c3620" stroke-width="0.8"/><rect x="19.5" y="4" width="2.5" height="16" rx="1.25" fill="#a5763a" stroke="#5c3620" stroke-width="0.8"/><line x1="7" y1="9" x2="17" y2="9" stroke="#7a5223" stroke-width="1"/><line x1="7" y1="12.5" x2="17" y2="12.5" stroke="#7a5223" stroke-width="1"/><line x1="7" y1="16" x2="14" y2="16" stroke="#7a5223" stroke-width="1"/></svg>Hall of Records</div>
     <div style="font-size:0.78rem;color:var(--text-mid);line-height:1.8">
-      <p style="margin-bottom:10px">The Hall of Records page shows a top-3 podium for nine career/season categories, plus full detail tables for Greatest Upsets and Greatest Blowouts. Most are self-explanatory from the stats above, but two are worth spelling out:</p>
+      <p style="margin-bottom:10px">The Hall of Records page shows a top-5 podium for nine career/season categories, plus full detail tables for Greatest Upsets and Greatest Blowouts. Most are self-explanatory from the stats above, but two are worth spelling out:</p>
       <p style="margin-bottom:10px"><strong style="color:var(--accent)">Doubles Elo Leader:</strong> ranks the 8 Summer Classic <em>teams</em> (not individual players) by team Elo &mdash; a separate leaderboard from everything else on the page, which is otherwise about individual players.</p>
       <p style="margin-bottom:10px"><strong style="color:var(--accent)"><svg width="14" height="14" viewBox="0 0 24 24" style="vertical-align:-2px;margin-right:2px"><rect x="3" y="3" width="18" height="18" rx="4" fill="#c99a4e" stroke="#5c3620" stroke-width="1.3"/><circle cx="8" cy="8" r="1.5" fill="#5c3620"/><circle cx="16" cy="8" r="1.5" fill="#5c3620"/><circle cx="12" cy="12" r="1.5" fill="#5c3620"/><circle cx="8" cy="16" r="1.5" fill="#5c3620"/><circle cx="16" cy="16" r="1.5" fill="#5c3620"/></svg>Odds Defying:</strong> for every player-year, their Elo rating at the very start of that year (before any games that year) is used to rank the whole active field into a "predicted finish order." That's compared against where they actually finished. The biggest gap between predicted rank and actual finish wins &mdash; e.g. a player predicted to finish 16th out of 16 by pre-season Elo, who then actually finished 5th, would top this category by a wide margin.</p>
       <p style="margin-bottom:0">All nine podium categories use the same underlying stats documented elsewhere on this page (Elo, Championship Points, career wins, etc.) &mdash; Odds Defying is the only one with genuinely new methodology.</p>
@@ -522,6 +539,14 @@ h2 { font-size: 0.85rem; font-weight: 700; color: var(--text-mid); margin-bottom
   <img id="photo-lightbox-img" src="">
   <button class="photo-lightbox-nav photo-lightbox-next" onclick="navLightbox(1)">&#10095;</button>
   <div id="photo-lightbox-caption" class="photo-lightbox-caption"></div>
+</div>
+
+<div id="page-updates" class="page">
+  <div class="card" style="margin-bottom:16px">
+    <div class="card-title"><svg width="14" height="14" viewBox="0 0 24 24" style="vertical-align:-2px;margin-right:2px"><rect x="4" y="3" width="16" height="18" rx="1.5" fill="#f4e4c1" stroke="#5c3620" stroke-width="1.2"/><rect x="8.5" y="1.5" width="7" height="3" rx="1" fill="#a5763a" stroke="#5c3620" stroke-width="1"/><line x1="7.5" y1="9" x2="16.5" y2="9" stroke="#7a5223" stroke-width="1.2"/><line x1="7.5" y1="12.5" x2="16.5" y2="12.5" stroke="#7a5223" stroke-width="1.2"/><line x1="7.5" y1="16" x2="13" y2="16" stroke="#7a5223" stroke-width="1.2"/><circle cx="17.5" cy="16.5" r="3.2" fill="#5c6b47" stroke="#33401f" stroke-width="1"/><path d="M15.9 16.6 L16.9 17.6 L19.1 15.4" stroke="#f4e4c1" stroke-width="1.1" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Site Updates</div>
+    <p style="font-size:0.78rem;color:var(--text-mid)">A running log of what's changed on this site, most recent first.</p>
+  </div>
+  <div id="updates-content"></div>
 </div>
 
 
@@ -597,7 +622,14 @@ h2 { font-size: 0.85rem; font-weight: 700; color: var(--text-mid); margin-bottom
 </div>
 </div>
 <div id="page-summer" class="page">
-  <div id="sc-dh2h" class="subpage active">
+  <div id="sc-leaderboard" class="subpage active">
+    <div class="card">
+      <div class="card-title">All Players — Doubles Summary (2025 Summer Classic, sorted by Doubles Elo, click a name for details)</div>
+      <div id="sc-leaderboard-content"></div>
+    </div>
+  </div>
+
+  <div id="sc-dh2h" class="subpage">
     <div class="card">
       <div class="card-title">Team Head-to-Head Matrix</div>
       <div class="matrix-wrap" id="doubles-h2h-matrix"></div>
@@ -969,6 +1001,29 @@ function renderOverview() {
   renderAllPlayersSummary();
 }
 
+// ── SITE UPDATES ─────────────────────────────────────────────────────────────
+// To log a future update: add a new object to the FRONT of this array (newest
+// first) with a date and one or two short paragraphs describing what changed.
+const UPDATES = [
+  {
+    date: 'August 5, 2026',
+    paragraphs: [
+      "The Summer Classic now has a full leaderboard tab to match the Christmas one, with Doubles Elo, Championship Points, SOS, and a per-year finish column (e.g. \"Champions with Owen\"). The Hall of Records got a matching expansion: a Badge Hall of Fame with top-5 leaderboards and a Rarest Badge ranking, a doubles section covering Championships, Championship Points, Peak Elo, Games, and Win%, doubles teams added to the Champions Gallery (now in true chronological order), and a \"Best Team Record\" leaderboard alongside a new \"Unfair Matchups\" table. Every leaderboard on that page moved from top-3 to top-5. The Compare Players tool got a matching rebuild for its doubles card, plus a career-wide partner rating stat that averages the strength of every teammate a player has had — deliberately never naming partners, since it's about each player's own performance.",
+      "A few things also got fixed along the way: doubles Elo wasn't reflecting year-end regression the way singles Elo did, so the live number shown on profiles and leaderboards disagreed with the trajectory chart — that's now consistent. Newly-qualified singles players were getting stuck in leaderboard-history limbo until their first round the following year; they now show up immediately, tagged NEW, once their debut season's regression is applied. Ties in the Compare tool now light up both sides instead of graying them out. Clicking a player's name always scrolls to the top of their profile now. Overview cards show doubles info alongside singles without getting taller. And a batch of new photos got added, with orientation and format issues cleaned up along the way."
+    ]
+  },
+];
+
+function renderUpdates() {
+  const container = document.getElementById('updates-content');
+  if (!container) return;
+  container.innerHTML = UPDATES.map(entry => `
+    <div class="update-entry">
+      <div class="update-date">${entry.date}</div>
+      ${entry.paragraphs.map(p => `<p>${p}</p>`).join('')}
+    </div>`).join('');
+}
+
 function renderChristmasLeaderboard() {
   const container = document.getElementById('cc-leaderboard-content');
   if (!container) return;
@@ -990,11 +1045,8 @@ function renderChristmasLeaderboard() {
             <th class="r">+/−</th>
             <th class="r">Games</th>
             <th class='r'>SOS</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th>
-            <th>Doubles</th>
           </tr></thead>
           <tbody>${rows.map(({p,tot},i)=>{
-            const d=DATA.doubles[p];
-            const dbl=d?`<span class="pill ${d.finish<=2?'pill-gold':d.finish<=4?'pill-silver':'pill-day2'}">${d.finish===1?ric('trophy'):d.finish===2?ric('medalSilver'):''}${DATA.doubles_finish_labels[d.finish]} w/${d.partner}</span>`:'—';
             const elo = ELO_DATA.elo[p]??1500;
             const peak = ELO_DATA.peak_elo[p]??1500;
             const cp = CHAMP_POINTS[p]??0;
@@ -1010,7 +1062,58 @@ function renderChristmasLeaderboard() {
               <td class="r" style="color:var(--text-mid)">${tot.games}</td>
               <td class="r" style="color:var(--text-mid)">${(()=>{const s=getSOS(p);return s!==null?s+'%':'—';})()}</td>
               ${YEARS.map(y=>{const s=DATA.year_stats[y][p];return `<td>${s.games>0?finishPillStat(s):'<span class="pill pill-none" style="opacity:0.5">DNP</span>'}</td>`;}).join('')}
-              <td>${dbl}</td>
+            </tr>`;
+          }).join('')}</tbody>
+        </table>
+      </div>`;
+}
+
+// ── SUMMER CLASSIC LEADERBOARD ─────────────────────────────────────────────────
+// Mirrors the Christmas leaderboard, but for doubles: individual Doubles Elo/record
+// plus a "teammate quality" stat that references the *partner's singles* Elo/win%
+// rather than raw doubles win rate, since doubles results are shared by both players
+// on a team (heavily correlated) and are a noisier signal of individual skill.
+function renderSummerLeaderboard() {
+  const container = document.getElementById('sc-leaderboard-content');
+  if (!container) return;
+  const doublesElo = computeDoublesEloIndividual();
+  const rec = computeDoublesPlayerRecords();
+
+  const rows = PLAYERS.map(p => {
+    const r = rec[p] || {w:0,l:0,games:0,champPoints:0,wr:null};
+    const elo = doublesElo.elo[p] ?? 1500;
+    const peak = doublesElo.peak_elo[p] ?? 1500;
+    const sos = getDoublesSOS(p);
+    const yearStandings = DOUBLES_YEARS.map(y => getDoublesStandingForPlayerYear(p, y));
+    return {p, r, elo, peak, sos, yearStandings};
+  }).sort((a,b) => b.elo - a.elo);
+
+  container.innerHTML = `
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr>
+            <th>Player</th>
+            <th class="r">Doubles Elo${il('explain-summer-format','How Doubles Elo works')}</th>
+            <th class="r">Peak</th>
+            <th class="r">Champ Pts</th>
+            <th class="r">W-L</th>
+            <th class="r">Win%</th>
+            <th class="r">SOS${il('explain-sos','How SOS is calculated')}</th>
+            <th class="r">Games</th>
+            ${DOUBLES_YEARS.map(y=>`<th>${y}</th>`).join('')}
+          </tr></thead>
+          <tbody>${rows.map(({p,r,elo,peak,sos,yearStandings})=>{
+            const eloCol = eloGradientColorDoubles(elo);
+            return `<tr style="cursor:pointer" onclick="showPage('overview');showPlayerDetail('${p}')">
+              <td style="font-weight:700;color:var(--accent)">${p}</td>
+              <td class="r" style="font-weight:800;color:${eloCol}">${elo.toFixed(0)}</td>
+              <td class="r" style="color:var(--text-mid)">${peak.toFixed(0)}</td>
+              <td class="r" style="font-weight:700;color:#fbbf24">${r.champPoints||0}</td>
+              <td class="r">${r.w||0}-${r.l||0}</td>
+              <td class="r ${wrClass(r.wr)}">${r.wr!=null?r.wr+'%':'—'}</td>
+              <td class="r" style="color:var(--text-mid)">${sos!=null?sos+'%':'—'}</td>
+              <td class="r" style="color:var(--text-mid)">${r.games||0}</td>
+              ${yearStandings.map(s=>`<td>${doublesFinishPill(s)}</td>`).join('')}
             </tr>`;
           }).join('')}</tbody>
         </table>
@@ -1019,6 +1122,7 @@ function renderChristmasLeaderboard() {
 
 function renderAllPlayersSummary() {
   const pv = document.getElementById('player-view');
+  const doublesRec = computeDoublesPlayerRecords();
   const rows = PLAYERS.map(p => {
     const tot = getAllStats(p);
     return {p, tot};
@@ -1032,9 +1136,13 @@ function renderAllPlayersSummary() {
         ${rows.map(({p,tot},i)=>{
           const recentYear = [...YEARS].sort((a,b)=>b-a).find(y => DATA.year_stats[y][p]?.games>0);
           const recentFinish = recentYear ? DATA.year_stats[recentYear][p] : null;
-          const finishPillHtml = recentFinish ? `<span class="pill ${recentFinish.pos===1?'pill-gold':recentFinish.pos===2?'pill-silver':recentFinish.pos<=7?'pill-day2':'pill-none'}" style="font-size:0.6rem">${recentYear}: ${recentFinish.pos===1?ric('trophy',12):recentFinish.pos===2?ric('medalSilver',12):recentFinish.pos===3?ric('medalBronze',12):''}${recentFinish.finish}</span>` : '';
+          const finishPillHtml = recentFinish ? `<span class="pill ${recentFinish.pos===1?'pill-gold':recentFinish.pos===2?'pill-silver':recentFinish.pos<=7?'pill-day2':'pill-none'}" style="font-size:0.6rem">${recentYear}: ${recentFinish.pos===1?ric('trophy',12):recentFinish.pos===2?ric('medalSilver',12):recentFinish.pos===3?ric('medalBronze',12):''}${recentFinish.finish}</span>` : `<span class="pill pill-none" style="font-size:0.6rem">—</span>`;
           const elo = ELO_DATA.elo[p]??1500;
           const cp = CHAMP_POINTS[p]??0;
+          const dRec = doublesRec[p] || {wr:null, champPoints:0};
+          const dWr = dRec.wr;
+          const dWrCol = dWr==null ? 'var(--text-dim)' : (dWr>=50 ? 'var(--green)' : 'var(--red)');
+          const dPts = dRec.champPoints||0;
           const rank = i+1;
           const avatarGrad = rank===1 ? 'linear-gradient(135deg,#fde68a,#fbbf24)'
                             : rank===2 ? 'linear-gradient(135deg,#e5e7eb,#9ca3af)'
@@ -1055,20 +1163,42 @@ function renderAllPlayersSummary() {
           const starColors = [...Array(golds).fill('#fbbf24'), ...Array(silvers).fill('#cbd5e1'), ...Array(bronzes).fill('#d97706')];
           const starsHtml = starColors.map((col,idx) => `<span style="color:${col};text-shadow:0 1px 2px rgba(0,0,0,0.6)">★</span>`).join('');
           const starsColHtml = starColors.length ? `<div class="ov-player-star-col">${starsHtml}</div>` : '';
+
+          // Doubles equivalents -- same gold/silver/bronze palette as singles, since
+          // being in a separate (right-side) column already keeps them from being
+          // confused with a singles title. 3rd and 4th (both SF losers) both count.
+          const dChamps = DOUBLES_YEARS.filter(y => getDoublesStandingForPlayerYear(p,y)?.pos===1).length;
+          const dFinalists = DOUBLES_YEARS.filter(y => getDoublesStandingForPlayerYear(p,y)?.pos===2).length;
+          const dSF = DOUBLES_YEARS.filter(y => { const s=getDoublesStandingForPlayerYear(p,y); return s && (s.pos===3||s.pos===4); }).length;
+          const dStarColors = [...Array(dChamps).fill('#fbbf24'), ...Array(dFinalists).fill('#cbd5e1'), ...Array(dSF).fill('#d97706')];
+          const dStarsHtml = dStarColors.map(col => `<span style="color:${col};text-shadow:0 1px 2px rgba(0,0,0,0.6)">★</span>`).join('');
+          const dStarsColHtml = dStarColors.length ? `<div class="ov-player-star-col doubles">${dStarsHtml}</div>` : '';
+
+          // Doubles pill: just the placement (no partner), same compact size as the
+          // singles pill, and rendered on the same row so it doesn't grow the card.
+          const recentDoublesYear = [...DOUBLES_YEARS].sort((a,b)=>b-a).find(y => getDoublesStandingForPlayerYear(p,y));
+          const dStanding = recentDoublesYear ? getDoublesStandingForPlayerYear(p, recentDoublesYear) : null;
+          const dPos = dStanding?.pos;
+          const dLabel = dPos ? (DATA.doubles_finish_labels[dPos] || `${dPos}th`) : null;
+          const dCls = dPos===1?'pill-gold':dPos===2?'pill-silver':(dPos===3||dPos===4)?'pill-bronze':'pill-day2';
+          const doublesPillHtml = dStanding ? `<span class="pill ${dCls}" style="font-size:0.6rem">${recentDoublesYear} Doubles: ${dPos===1?ric('trophy',12):dPos===2?ric('medalSilver',12):''}${dLabel}</span>` : `<span class="pill pill-none" style="font-size:0.6rem">— Doubles</span>`;
           return `<div class="ov-player-card" style="background:${cardBg};border-color:${cardBorderCol}55" onclick="showPlayerDetail('${p}')">
             <div class="ov-player-topbar" style="background:${avatarGrad}"></div>
             <div class="ov-player-rank">#${rank}</div>
             ${starsColHtml}
+            ${dStarsColHtml}
             <div class="ov-player-avatar-wrap">
               <div class="ov-player-avatar" style="background-image:url(${PLAYER_PHOTOS[p]});background-size:cover;background-position:center"></div>
             </div>
             <div class="ov-player-name">${p}</div>
             <div class="ov-player-elo" style="background:linear-gradient(90deg, ${eloCol} 35%, #fff 50%, ${eloCol} 65%);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:eloShimmer 14s linear infinite">${elo.toFixed(0)}</div>
             <div class="ov-player-stats">
-              <span>Win% <span class="ov-player-stat-val" style="color:${wrCol}">${tot.wr!==null?tot.wr+'%':'—'}</span></span>
-              <span>Pts <span class="ov-player-stat-val" style="color:#fbbf24">${cp}</span></span>
+              <span class="ov-player-stat-val" style="color:${wrCol}">${tot.wr!==null?tot.wr+'%':'—'}</span>
+              <span class="ov-player-stat-val" style="color:#fbbf24">${cp}</span>
+              <span class="ov-player-stat-val" style="color:${dWrCol}">${dWr!=null?dWr+'%':'—'}</span>
+              <span class="ov-player-stat-val" style="color:#38bdf8">${dPts}</span>
             </div>
-            ${finishPillHtml?`<div class="ov-player-dbl">${finishPillHtml}</div>`:''}
+            <div class="ov-player-dbl" style="display:flex;flex-direction:column;align-items:center;gap:4px">${finishPillHtml}${doublesPillHtml}</div>
           </div>`;
         }).join('')}
       </div>
@@ -1301,10 +1431,13 @@ function computeAllSnapshots() {
   let curYear = null;
   let curGroup = null;
 
-  function takeSnapshot() {
+  function takeSnapshot(postRegression=false) {
     // A player only appears on the leaderboard once their first tournament's year
-    // has fully concluded (not partway through it, regardless of games played)
-    const active = PLAYERS.filter(p => hasPlayed[p] && curYear > getFirstYear(p));
+    // has fully concluded (not partway through it, regardless of games played).
+    // "Fully concluded" includes the post-regression snapshot taken right after
+    // their debut year's regression is applied -- they shouldn't have to wait for
+    // their first round of the *following* year just to show up as qualified.
+    const active = PLAYERS.filter(p => hasPlayed[p] && (curYear > getFirstYear(p) || (postRegression && curYear === getFirstYear(p))));
     if (active.length === 0) return;
     const ranked = [...active].sort((a,b) => elo[b]-elo[a]);
     const standings = [];
@@ -1364,7 +1497,7 @@ function computeAllSnapshots() {
       // (Peak Family Ranking, eligible-rounds counts, etc. never see this label).
       const nextYear = m.year + 1;
       curGroup = `↓ Regression → ${nextYear}`;
-      takeSnapshot();
+      takeSnapshot(true);
     }
   });
 
@@ -1631,6 +1764,17 @@ function computeDoublesEloIndividual() {
     });
   });
 
+  // Only one Summer Classic happens per year, so -- exactly like singles -- the
+  // season boundary is fully known the moment the tournament's last match concludes.
+  // Apply regression right then, including for the most recent year, so "current"
+  // Doubles Elo always already reflects it (ready for next season) instead of
+  // showing a temporary raw number that's waiting to be discounted later. Without
+  // this, the per-player Elo History chart (which does apply it) and the "current"
+  // Doubles Elo shown everywhere else would disagree.
+  if (curYear !== null) {
+    allPlayers.forEach(p => { elo[p] = elo[p]*0.9 + 1500*0.1; });
+  }
+
   _doublesEloIndivCache = {elo, peak_elo:peak, greatest_win:greatestWin, games_played:gamesPlayed};
   return _doublesEloIndivCache;
 }
@@ -1805,6 +1949,101 @@ function getDoublesSOS(player) {
   return totalGames > 0 ? Math.round(weightedWR/totalGames*10)/10 : null;
 }
 
+// Doubles years played so far (currently just 2025's Summer Classic; this grows
+// automatically the moment a new year gets added to DOUBLES_STANDINGS).
+const DOUBLES_YEARS = Object.keys(DOUBLES_STANDINGS).map(Number).sort((a,b)=>a-b);
+
+// Looks up a single player's result for one doubles year: their finish position
+// and every teammate on that team (almost always one partner, occasionally more).
+function getDoublesStandingForPlayerYear(p, year) {
+  const standings = DOUBLES_STANDINGS[year];
+  if (!standings) return null;
+  for (const s of standings) {
+    const teamEntry = DOUBLES_TEAMS.find(t => t.key === s.team);
+    if (!teamEntry) continue;
+    if (teamEntry.players.includes(p)) {
+      return {pos: s.pos, partners: teamEntry.players.filter(q=>q!==p), w: s.w, l: s.l, wr: s.wr};
+    }
+  }
+  return null;
+}
+
+// Renders one combined "{finish} with {partner}" pill for a given year's standing.
+// Builds the label/icon fresh from the numeric position every time (rather than
+// reusing DOUBLES_STANDINGS' pre-baked finish string, which already has its own
+// medal icon) so it's never double-iconed, and gives SF its own color so it reads
+// as distinct from an outright Finalist finish.
+function doublesFinishPill(standing) {
+  if (!standing) return `<span class="pill pill-none" style="opacity:0.5">DNP</span>`;
+  const {pos, partners} = standing;
+  const label = DATA.doubles_finish_labels[pos] || `${pos}th`;
+  let cls = 'pill-day2', icon = '';
+  if (pos === 1) { cls = 'pill-gold'; icon = ric('trophy'); }
+  else if (pos === 2) { cls = 'pill-silver'; icon = ric('medalSilver'); }
+  else if (pos === 3 || pos === 4) { cls = 'pill-bronze'; icon = ric('medalBronze'); }
+  const withText = partners.length ? ` with ${partners.join(' & ')}` : '';
+  return `<span class="pill ${cls}">${icon}${label}${withText}</span>`;
+}
+
+// A player's singles Elo as it stood *entering* a given year — i.e. right before
+// that year's Christmas Championship. The Summer Classic happens mid-year, before
+// that December tournament, so this is the correct historically-accurate anchor
+// (matches the "Elo entering the year" logic already used for Odds Defying).
+function getSinglesEloEnteringYear(p, year) {
+  const traj = computeFullEloHistory()[p];
+  if (!traj || traj.length===0) return 1500;
+  const yearEntries = traj.filter(e=>e.year===year);
+  if (yearEntries.length === 0) return traj[traj.length-1].elo; // no games that year yet — best available fallback
+  const firstIdx = traj.indexOf(yearEntries[0]);
+  return firstIdx > 0 ? traj[firstIdx-1].elo : 1500;
+}
+// Same idea for singles win% — only counts years strictly before the given year,
+// since that year's Christmas Championship (where those games happen) hasn't been
+// played yet by the time of the Summer Classic.
+function getSinglesStatsEnteringYear(p, year) {
+  let tw=0,tl=0,tt=0,tg=0;
+  YEARS.forEach(y=>{
+    if (y >= year) return;
+    const s = DATA.year_stats[y][p];
+    if (!s) return;
+    tw+=s.w; tl+=s.l; tt+=s.t; tg+=s.games;
+  });
+  const wr = tg>0 ? Math.round((tw+0.5*tt)/tg*1000)/10 : null;
+  return {w:tw,l:tl,t:tt,games:tg,wr};
+}
+
+// A player's teammates' *singles* Elo/win%, averaged across every partner they've
+// ever had, weighted by games played together. Deliberately singles-based, not
+// doubles win rate: both players on a team share the exact same W-L outcome every
+// game, so doubles win% barely reflects a partner's individual skill. Each year's
+// contribution uses that partner's singles rating as it stood *entering* that year
+// (before that December's Christmas Championship), since the Summer Classic always
+// happens first and live/current Elo would leak in results not yet played at the time.
+function getPartnerSinglesRating(p) {
+  const partners = new Set();
+  let totalGames = 0, weightedElo = 0, wrGames = 0, weightedWr = 0;
+  DOUBLES_YEARS.forEach(y => {
+    const standing = getDoublesStandingForPlayerYear(p, y);
+    if (!standing) return;
+    const games = standing.w + standing.l;
+    if (games <= 0) return;
+    standing.partners.forEach(partner => {
+      if (!PLAYERS.includes(partner)) return;
+      partners.add(partner);
+      weightedElo += getSinglesEloEnteringYear(partner, y) * games;
+      totalGames += games;
+      const stats = getSinglesStatsEnteringYear(partner, y);
+      if (stats.wr != null) { weightedWr += stats.wr * games; wrGames += games; }
+    });
+  });
+  if (totalGames === 0) return {partners: [], elo: null, wr: null};
+  return {
+    partners: [...partners],
+    elo: weightedElo / totalGames,
+    wr: wrGames > 0 ? Math.round((weightedWr / wrGames) * 10) / 10 : null,
+  };
+}
+
 function computeDoublesPlayerRecords() {
   const allPlayers = [...new Set(DOUBLES_TEAMS.flatMap(t => t.players))];
   const rec = {}; allPlayers.forEach(p=>rec[p]={w:0,l:0,games:0,partner:null,finish:null,pos:null,champPoints:0,finishHistory:[]});
@@ -1867,8 +2106,13 @@ function computeDoublesSnapshotsIndividual() {
   DOUBLES_HISTORY.forEach(([y,phase,round,t1key,t2key,winnerTeam,gamesArr]) => {
     if (curRound===null) { curRound = round; curYear = y; }
     else if (y !== curYear) {
-      snapshot();
+      snapshot(); // end-of-year standings, pre-regression
       allPlayers.forEach(p => { elo[p] = elo[p]*0.9 + 1500*0.1; });
+      // Extra snapshot showing standings right after year-end regression, before any
+      // new-year games are played -- same display convenience as the singles Elo
+      // Leaderboard History browser. Still labeled under the year that just ended.
+      curRound = `↓ Regression → ${y}`;
+      snapshot();
       curRound = round; curYear = y;
     } else if (round !== curRound) { snapshot(); curRound = round; }
 
@@ -1889,7 +2133,16 @@ function computeDoublesSnapshotsIndividual() {
       team2.forEach(p => { elo[p]+=delta2; gamesPlayed[p]++; hasPlayed[p]=true; });
     });
   });
-  snapshot();
+  snapshot(); // end-of-year standings for the most recent year, pre-regression
+  // Apply and expose the same year-end regression for the most recent year too, so
+  // "current" Doubles Elo (and this browser's last entry) is always already ready
+  // for next season -- matching singles and the per-player Elo History chart, which
+  // already shows this same regression point.
+  if (curYear !== null) {
+    allPlayers.forEach(p => { elo[p] = elo[p]*0.9 + 1500*0.1; });
+    curRound = `↓ Regression → ${curYear+1}`;
+    snapshot();
+  }
   return snapshots;
 }
 
@@ -2165,10 +2418,10 @@ function renderFullEloChart(p) {
 }
 
 let playerSubTab = 'singles';
-function setPlayerSubTab(t) { playerSubTab = t; showPlayerDetail(currentDetailPlayer); }
+function setPlayerSubTab(t) { playerSubTab = t; showPlayerDetail(currentDetailPlayer, false); }
 let currentDetailPlayer = null;
 
-function showPlayerDetail(p) {
+function showPlayerDetail(p, scrollToTop = true) {
   currentDetailPlayer = p;
   document.querySelectorAll('.player-btn').forEach(b=>b.classList.toggle('selected',b.textContent===p));
   const pv = document.getElementById('player-view');
@@ -2227,6 +2480,7 @@ function showPlayerDetail(p) {
 
   if (playerSubTab === 'doubles') {
     pv.innerHTML = header + renderDoublesSubTab(p, d);
+    if (scrollToTop) window.scrollTo(0, 0);
     return;
   }
 
@@ -2374,6 +2628,8 @@ function showPlayerDetail(p) {
     </div>
 
     ${renderAchievements(p)}`;
+
+  if (scrollToTop) window.scrollTo(0, 0);
 }
 
 const DOUBLES_ACHIEVEMENT_BADGES = [
@@ -2577,15 +2833,53 @@ function renderDoublesSubTab(p, d) {
 
   const dSos = getDoublesSOS(p);
   const cpRank = [...allPlayers].sort((a,b)=>(rec[b]?.champPoints??0)-(rec[a]?.champPoints??0)).indexOf(p)+1;
+  const partnerRating = getPartnerSinglesRating(p);
+  const yearRows = DOUBLES_YEARS.map(y => {
+    const s = getDoublesStandingForPlayerYear(p, y);
+    if (!s) return null;
+    return `<tr>
+      <td style="font-weight:700;color:var(--text-mid)">${y}</td>
+      <td>${doublesFinishPill(s)}</td>
+      <td class="r">${s.w}-${s.l}</td>
+      <td class="r ${wrClass(s.wr)}">${s.wr}%</td>
+      <td class="r" style="color:var(--text-mid)">${s.w+s.l}</td>
+    </tr>`;
+  }).filter(Boolean).reverse().join('');
+
+  // Rank badges — same 3-tier gold/purple/gray convention used on the Singles tab,
+  // so every doubles stat gets a "#N" the same way Career Win%/SOS/Diff already do.
+  const allDblPeak = allPlayers.map(q=>({p:q,v:de.peak_elo[q]??1500})).sort((a,b)=>b.v-a.v);
+  const allDblWR   = allPlayers.map(q=>({p:q,v:rec[q]?.wr??-1})).sort((a,b)=>b.v-a.v);
+  const allDblSOS  = allPlayers.map(q=>({p:q,v:getDoublesSOS(q)??-1})).sort((a,b)=>b.v-a.v);
+  const allPtrElo  = allPlayers.map(q=>({p:q,v:getPartnerSinglesRating(q).elo??-1})).sort((a,b)=>b.v-a.v);
+  const allPtrWR   = allPlayers.map(q=>({p:q,v:getPartnerSinglesRating(q).wr??-1})).sort((a,b)=>b.v-a.v);
+  const rankOf = (arr,name) => { const i=arr.findIndex(x=>x.p===name); return i>=0?i+1:null; };
+  const rkPeak = rankOf(allDblPeak, p), rkWR = rankOf(allDblWR, p), rkSOS = rankOf(allDblSOS, p);
+  const rkPtrElo = rankOf(allPtrElo, p), rkPtrWR = rankOf(allPtrWR, p);
+  function rkBadge(rk) {
+    if(!rk) return '';
+    const col = rk<=3?'#fbbf24':rk<=8?'#a78bfa':'#4b5563';
+    return `<span style="font-size:0.6rem;font-weight:700;color:${col};margin-left:4px">#${rk}</span>`;
+  }
+  const partnerLabel = partnerRating.partners.length ? partnerRating.partners.join(' / ') : '—';
+  const partnerClick = partnerRating.partners.length===1 ? `style="cursor:pointer" onclick="showPlayerDetail('${partnerRating.partners[0]}')"` : '';
 
   return `
     <div class="stat-grid">
-      <div class="stat-box" style="border:1px solid #fbbf2444"><div class="stat-box-label" style="color:#fbbf24">Doubles Elo <span style="font-size:0.6rem;color:${eloRank<=3?'#fbbf24':'#4b5563'}">#${eloRank}</span>${il('explain-summer-format','How Doubles Elo works')}</div><div class="stat-box-val" style="color:#fbbf24">${de.elo[p].toFixed(0)}</div></div>
-      <div class="stat-box"><div class="stat-box-label">Peak Doubles Elo</div><div class="stat-box-val" style="color:#a78bfa">${de.peak_elo[p].toFixed(0)}</div></div>
+      <div class="stat-box" style="border:1px solid #fbbf2444"><div class="stat-box-label" style="color:#fbbf24">Doubles Elo ${rkBadge(eloRank)}${il('explain-summer-format','How Doubles Elo works')}</div><div class="stat-box-val" style="color:#fbbf24">${de.elo[p].toFixed(0)}</div></div>
+      <div class="stat-box"><div class="stat-box-label">Peak Doubles Elo ${rkBadge(rkPeak)}</div><div class="stat-box-val" style="color:#a78bfa">${de.peak_elo[p].toFixed(0)}</div></div>
       <div class="stat-box"><div class="stat-box-label">Doubles Record</div><div class="stat-box-val" style="font-size:0.9rem">${r.w}-${r.l}</div></div>
-      <div class="stat-box"><div class="stat-box-label">Doubles Win%</div><div class="stat-box-val ${wrClass(r.wr)}">${r.wr}%</div></div>
-      <div class="stat-box"><div class="stat-box-label">Opp. Win% (SOS)${il('explain-sos','How SOS is calculated')}</div><div class="stat-box-val" style="color:var(--text-mid)">${dSos!==null?dSos+'%':'—'}</div></div>
-      <div class="stat-box" style="border:1px solid #fbbf2433"><div class="stat-box-label" style="color:#fbbf24">Doubles Champ Pts <span style="font-size:0.6rem;color:${cpRank<=3?'#fbbf24':'#4b5563'}">#${cpRank}</span>${il('explain-summer-format','How Doubles Championship Points are earned')}</div><div class="stat-box-val" style="color:#fbbf24">${r.champPoints}</div></div>
+      <div class="stat-box"><div class="stat-box-label">Doubles Win% ${rkBadge(rkWR)}</div><div class="stat-box-val ${wrClass(r.wr)}">${r.wr}%</div></div>
+      <div class="stat-box"><div class="stat-box-label">Opp. Win% (SOS) ${rkBadge(rkSOS)}${il('explain-sos','How SOS is calculated')}</div><div class="stat-box-val" style="color:var(--text-mid)">${dSos!==null?dSos+'%':'—'}</div></div>
+      <div class="stat-box" style="border:1px solid #fbbf2433"><div class="stat-box-label" style="color:#fbbf24">Doubles Champ Pts ${rkBadge(cpRank)}${il('explain-summer-format','How Doubles Championship Points are earned')}</div><div class="stat-box-val" style="color:#fbbf24">${r.champPoints}</div></div>
+      <div class="stat-box" ${partnerClick}>
+        <div class="stat-box-label">Partner's Singles Elo ${rkBadge(rkPtrElo)}<span style="font-size:0.6rem;color:var(--text-dim)"> (${partnerLabel})</span></div>
+        <div class="stat-box-val" style="color:${partnerRating.elo!=null?eloGradientColor(partnerRating.elo):'var(--text-mid)'}">${partnerRating.elo!=null?partnerRating.elo.toFixed(0):'—'}</div>
+      </div>
+      <div class="stat-box" ${partnerClick}>
+        <div class="stat-box-label">Partner's Singles Win% ${rkBadge(rkPtrWR)}<span style="font-size:0.6rem;color:var(--text-dim)"> (${partnerLabel})</span></div>
+        <div class="stat-box-val ${wrClass(partnerRating.wr)}">${partnerRating.wr!=null?partnerRating.wr+'%':'—'}</div>
+      </div>
     </div>
 
     <div class="section">
@@ -2596,15 +2890,8 @@ function renderDoublesSubTab(p, d) {
     <div class="section">
       <h2>Season Results</h2>
       <div class="tbl-wrap"><table>
-        <thead><tr><th>Year</th><th>Partner</th><th>Finish</th><th class="r">Record</th><th class="r">Win%</th><th class="r">Games</th></tr></thead>
-        <tbody><tr>
-          <td style="font-weight:700;color:var(--text-mid)">2025</td>
-          <td style="font-weight:700;color:var(--accent);cursor:pointer" onclick="showPlayerDetail('${d.partner}')">${d.partner}</td>
-          <td><span class="pill ${d.finish<=2?'pill-gold':d.finish<=4?'pill-silver':'pill-day2'}">${d.finish===1?ric('trophy'):d.finish===2?ric('medalSilver'):''}${DATA.doubles_finish_labels[d.finish]}</span></td>
-          <td class="r">${r.w}-${r.l}</td>
-          <td class="r ${wrClass(r.wr)}">${r.wr}%</td>
-          <td class="r" style="color:var(--text-mid)">${r.w+r.l}</td>
-        </tr></tbody>
+        <thead><tr><th>Year</th><th>Finish</th><th class="r">Record</th><th class="r">Win%</th><th class="r">Games</th></tr></thead>
+        <tbody>${yearRows}</tbody>
       </table></div>
     </div>
 
@@ -2757,7 +3044,7 @@ function renderComparison() {
     return 'tie';
   }
 
-  const colLeft = '#a78bfa', colRight = '#38bdf8', colTie = '#4b5563';
+  const colLeft = '#a78bfa', colRight = '#38bdf8';
 
   function winnerChip(side, color) {
     return side ? `<span class="cmp-winner-chip" style="color:${color}">${ric('crown')}</span>` : '';
@@ -2766,12 +3053,12 @@ function renderComparison() {
   // Proportional comparison bar for percentage-style stats (0-100 range)
   function statRow(label, v1, v2, higherBetter=true, fmt=v=>v) {
     const winner = cmpStat(v1,v2,higherBetter);
-    const c1 = winner==='left'?colLeft:winner==='tie'?colTie:'var(--text-mid)';
-    const c2 = winner==='right'?colRight:winner==='tie'?colTie:'var(--text-mid)';
+    const c1 = winner==='right' ? 'var(--text-mid)' : colLeft;
+    const c2 = winner==='left' ? 'var(--text-mid)' : colRight;
     return `<div class="cmp-stat-row">
-      <div class="cmp-stat-val" style="text-align:right;color:${c1}">${v1!==null?fmt(v1):'—'} ${winnerChip(winner==='left',colLeft)}</div>
+      <div class="cmp-stat-val" style="text-align:right;color:${c1}">${v1!==null?fmt(v1):'—'} ${winnerChip(winner==='left'||winner==='tie',colLeft)}</div>
       <div class="cmp-stat-label">${label}</div>
-      <div class="cmp-stat-val" style="color:${c2}">${winnerChip(winner==='right',colRight)} ${v2!==null?fmt(v2):'—'}</div>
+      <div class="cmp-stat-val" style="color:${c2}">${winnerChip(winner==='right'||winner==='tie',colRight)} ${v2!==null?fmt(v2):'—'}</div>
     </div>`;
   }
 
@@ -2786,9 +3073,9 @@ function renderComparison() {
     + statRow('Championship Points'+il('explain-champpoints','How Championship Points are earned'), cp1, cp2, true, v=>v)
     + (()=>{
         const gwWinner = cmpStat(gw1?gw1[0]:null, gw2?gw2[0]:null, true);
-        const c1 = gwWinner==='left'?colLeft:gwWinner==='tie'?colTie:'var(--text-mid)';
-        const c2 = gwWinner==='right'?colRight:gwWinner==='tie'?colTie:'var(--text-mid)';
-        return `<div class="cmp-stat-row"><div class="cmp-stat-val" style="text-align:right;color:${c1};font-size:0.7rem">${gw1?`beat ${gw1[1]} (${gw1[0].toFixed(0)}) in ${gw1[2]}`:'—'} ${winnerChip(gwWinner==='left',colLeft)}</div><div class="cmp-stat-label">Greatest Win${il('explain-stat-defs','What counts as a Greatest Win')}</div><div class="cmp-stat-val" style="color:${c2};font-size:0.7rem">${winnerChip(gwWinner==='right',colRight)} ${gw2?`beat ${gw2[1]} (${gw2[0].toFixed(0)}) in ${gw2[2]}`:'—'}</div></div>`;
+        const c1 = gwWinner==='right' ? 'var(--text-mid)' : colLeft;
+        const c2 = gwWinner==='left' ? 'var(--text-mid)' : colRight;
+        return `<div class="cmp-stat-row"><div class="cmp-stat-val" style="text-align:right;color:${c1};font-size:0.7rem">${gw1?`beat ${gw1[1]} (${gw1[0].toFixed(0)}) in ${gw1[2]}`:'—'} ${winnerChip(gwWinner==='left'||gwWinner==='tie',colLeft)}</div><div class="cmp-stat-label">Greatest Win${il('explain-stat-defs','What counts as a Greatest Win')}</div><div class="cmp-stat-val" style="color:${c2};font-size:0.7rem">${winnerChip(gwWinner==='right'||gwWinner==='tie',colRight)} ${gw2?`beat ${gw2[1]} (${gw2[0].toFixed(0)}) in ${gw2[2]}`:'—'}</div></div>`;
       })();
 
   // Career finishes summary
@@ -2801,13 +3088,13 @@ function renderComparison() {
     const wr1 = s1.wr, wr2 = s2.wr;
     const pos1 = s1.pos||99, pos2 = s2.pos||99;
     const winnerPos = pos1<pos2?'left':pos2<pos1?'right':'tie';
-    const pc1 = winnerPos==='left'?colLeft:winnerPos==='tie'?colTie:'#374151';
-    const pc2 = winnerPos==='right'?colRight:winnerPos==='tie'?colTie:'#374151';
+    const pc1 = winnerPos==='right'?'#374151':colLeft;
+    const pc2 = winnerPos==='left'?'#374151':colRight;
     // h2h this year
     let hCell = '<td style="text-align:center;color:var(--text-dim)">—</td>';
     if(h && h.games>0) {
       const hpct = Math.round((h.w+0.5*h.t)/h.games*100);
-      const hc = hpct>50?colLeft:hpct<50?colRight:colTie;
+      const hc = hpct>50?colLeft:hpct<50?colRight:'#fbbf24';
       hCell = `<td style="text-align:center;font-size:0.72rem;font-weight:700;color:${hc}">${h.w}-${h.l}${h.t?'-'+h.t:''} <span style="color:var(--text-dim)">(${ds(h.diff)})</span></td>`;
     }
     return `<tr style="border-bottom:1px solid var(--border)">
@@ -2823,23 +3110,70 @@ function renderComparison() {
     </tr>`;
   }).join('');
 
-  // Doubles
-  const d1 = DATA.doubles[p1], d2 = DATA.doubles[p2];
-  const dblRow = (d1||d2)?`<div class="cmp-stat-row"><div class="cmp-stat-val" style="text-align:right;color:${colLeft};font-size:0.75rem">${d1?`${d1.finish===1?ric('trophy'):d1.finish===2?ric('medalSilver'):''}${DATA.doubles_finish_labels[d1.finish]} w/${d1.partner} (${d1.wr}%)`:'—'}</div><div class="cmp-stat-label">Doubles</div><div class="cmp-stat-val" style="color:${colRight};font-size:0.75rem">${d2?`${d2.finish===1?ric('trophy'):d2.finish===2?ric('medalSilver'):''}${DATA.doubles_finish_labels[d2.finish]} w/${d2.partner} (${d2.wr}%)`:'—'}</div></div>`:'';
+  // Doubles season-by-season -- placement + record only, deliberately no partner
+  // name, same tie-lights-up-both-sides treatment as the singles table.
+  const doublesYearRows = DOUBLES_YEARS.map(y => {
+    const ds1 = getDoublesStandingForPlayerYear(p1, y);
+    const ds2 = getDoublesStandingForPlayerYear(p2, y);
+    if (!ds1 && !ds2) return null;
+    const pos1 = ds1?.pos||99, pos2 = ds2?.pos||99;
+    const winnerPos = pos1<pos2?'left':pos2<pos1?'right':'tie';
+    const pc1 = winnerPos==='right'?'#374151':colLeft;
+    const pc2 = winnerPos==='left'?'#374151':colRight;
+    const label1 = ds1 ? (DATA.doubles_finish_labels[ds1.pos] || `${ds1.pos}th`) : null;
+    const label2 = ds2 ? (DATA.doubles_finish_labels[ds2.pos] || `${ds2.pos}th`) : null;
+    return `<tr style="border-bottom:1px solid var(--border)">
+      <td style="text-align:right">
+        ${ds1?`<span style="font-weight:700;color:${pc1}">${label1}</span> <span style="font-size:0.68rem;color:var(--text-dim)">${ds1.w}-${ds1.l} (${ds1.wr}%)</span>`:'<span style="color:#2d2d40">—</span>'}
+      </td>
+      <td style="text-align:center;font-weight:800;color:var(--text-dim);font-size:0.8rem">${y}</td>
+      <td>
+        ${ds2?`<span style="font-weight:700;color:${pc2}">${label2}</span> <span style="font-size:0.68rem;color:var(--text-dim)">${ds2.w}-${ds2.l} (${ds2.wr}%)</span>`:'<span style="color:#2d2d40">—</span>'}
+      </td>
+    </tr>`;
+  }).filter(Boolean).join('') || `<tr><td colspan="3" style="text-align:center;color:var(--text-dim);padding:14px">No Summer Classic results yet</td></tr>`;
 
+  // Doubles career stats — mirrors the Singles card's shape (Win% / SOS / W-L-T /
+  // Games / Elo / Peak Elo / Champ Pts / Badges / Stars), and deliberately never
+  // names a partner anywhere in this section: this card is about each player's own
+  // performance in the Summer Classic, not who they happened to play with.
   const doublesElo = computeDoublesEloIndividual();
+  const rec = computeDoublesPlayerRecords();
+  const dRec1 = rec[p1] || {w:0,l:0,games:0,wr:null,champPoints:0};
+  const dRec2 = rec[p2] || {w:0,l:0,games:0,wr:null,champPoints:0};
+  const dSos1 = getDoublesSOS(p1), dSos2 = getDoublesSOS(p2);
   const hasDbl1 = doublesElo.elo[p1] !== undefined, hasDbl2 = doublesElo.elo[p2] !== undefined;
-  const dblEloRow = (hasDbl1||hasDbl2)?statRow('Doubles Elo'+il('explain-summer-format','How Doubles Elo works'), hasDbl1?doublesElo.elo[p1]:null, hasDbl2?doublesElo.elo[p2]:null, true, v=>v.toFixed(1)):'';
 
-  // Achievements — badges earned (out of the full set) and total stars across all tiers
-  const achSum1 = getAchievementSummary(p1), achSum2 = getAchievementSummary(p2);
-  const singlesBadgeRow = statRow('Badges Earned'+il('explain-badges-singles','What each badge means'), achSum1.badges, achSum2.badges, true, v=>v+'/'+achSum1.total);
-  const singlesStarRow = statRow('Total Stars'+il('explain-badges-singles','How achievement tiers/stars work'), achSum1.stars, achSum2.stars, true, v=>v+' ⭐');
+  const doublesWrRow = statRow('Win %', dRec1.wr, dRec2.wr, true, v=>v+'%');
+  const doublesSosRow = statRow('Opp Win% (SOS)'+il('explain-sos','How SOS is calculated'), dSos1, dSos2, true, v=>v+'%');
+  const doublesWltRow = (()=>{
+    const wltWinner = cmpStat(dRec1.wr, dRec2.wr, true);
+    const c1 = wltWinner==='right' ? 'var(--text-mid)' : colLeft;
+    const c2 = wltWinner==='left' ? 'var(--text-mid)' : colRight;
+    return `<div class="cmp-stat-row"><div class="cmp-stat-val" style="text-align:right;color:${c1}">${dRec1.w}-${dRec1.l}-0 ${winnerChip(wltWinner==='left'||wltWinner==='tie',colLeft)}</div><div class="cmp-stat-label">W-L-T</div><div class="cmp-stat-val" style="color:${c2}">${winnerChip(wltWinner==='right'||wltWinner==='tie',colRight)} ${dRec2.w}-${dRec2.l}-0</div></div>`;
+  })();
+  const doublesGamesRow = statRow('Games Played', dRec1.games, dRec2.games, true);
+  const dblEloRow = (hasDbl1||hasDbl2)?statRow('Current Elo'+il('explain-summer-format','How Doubles Elo works'), hasDbl1?doublesElo.elo[p1]:null, hasDbl2?doublesElo.elo[p2]:null, true, v=>v.toFixed(0)):'';
+  const dblPeakEloRow = (hasDbl1||hasDbl2)?statRow('Peak Elo', hasDbl1?doublesElo.peak_elo[p1]:null, hasDbl2?doublesElo.peak_elo[p2]:null, true, v=>v.toFixed(0)):'';
+  const doublesChampPtsRow = statRow('Championship Points'+il('explain-summer-format','How Doubles Championship Points are earned'), dRec1.champPoints||0, dRec2.champPoints||0, true, v=>v);
 
   const dAchSum1 = getDoublesAchievementSummary(p1), dAchSum2 = getDoublesAchievementSummary(p2);
   const dTotal = DOUBLES_ACHIEVEMENT_BADGES.length;
   const doublesBadgeRow = (dAchSum1||dAchSum2)?statRow('Badges Earned'+il('explain-badges-doubles','What each doubles badge means'), dAchSum1?dAchSum1.badges:null, dAchSum2?dAchSum2.badges:null, true, v=>v+'/'+dTotal):'';
   const doublesStarRow = (dAchSum1||dAchSum2)?statRow('Total Stars'+il('explain-badges-doubles','How doubles achievement tiers/stars work'), dAchSum1?dAchSum1.stars:null, dAchSum2?dAchSum2.stars:null, true, v=>v+' ⭐'):'';
+
+  // Partner's singles rating — how strong each player's teammate(s) have been at
+  // singles, career-weighted by games played together. Lower is actually the more
+  // impressive side here: it means that player got their results with less help,
+  // a harder situation than a teammate carrying part of the load.
+  const pr1 = getPartnerSinglesRating(p1), pr2 = getPartnerSinglesRating(p2);
+  const partnerEloRow = (pr1.elo!=null||pr2.elo!=null)?statRow(`Partner Avg. Elo${il('explain-summer-format','How partner rating works')}`, pr1.elo, pr2.elo, false, v=>v.toFixed(0)):'';
+  const partnerWrRow = (pr1.wr!=null||pr2.wr!=null)?statRow('Partner Win%', pr1.wr, pr2.wr, false, v=>v+'%'):'';
+
+  // Achievements — badges earned (out of the full set) and total stars across all tiers
+  const achSum1 = getAchievementSummary(p1), achSum2 = getAchievementSummary(p2);
+  const singlesBadgeRow = statRow('Badges Earned'+il('explain-badges-singles','What each badge means'), achSum1.badges, achSum2.badges, true, v=>v+'/'+achSum1.total);
+  const singlesStarRow = statRow('Total Stars'+il('explain-badges-singles','How achievement tiers/stars work'), achSum1.stars, achSum2.stars, true, v=>v+' ⭐');
 
   result.innerHTML = `
     <div class="cmp-hero-grid">
@@ -2861,9 +3195,9 @@ function renderComparison() {
     ${hg>0?`<div class="card" style="margin-bottom:14px;text-align:center">
       <div class="card-title">${ric('handshake')}Head-to-Head Record (all time)</div>
       <div style="font-size:1.8rem;font-weight:900;margin:8px 0">
-        <span style="color:${hw>hl?colLeft:colTie}">${hw}</span>
+        <span style="color:${hw>=hl?colLeft:'var(--text-mid)'}">${hw}</span>
         <span style="color:var(--text-dim);font-size:1rem;margin:0 8px">–</span>
-        <span style="color:${hl>hw?colRight:colTie}">${hl}</span>
+        <span style="color:${hl>=hw?colRight:'var(--text-mid)'}">${hl}</span>
         ${ht?`<span style="color:var(--text-dim);font-size:0.8rem"> (${ht}T)</span>`:''}
       </div>
       <div style="font-size:0.75rem;color:var(--text-dim)">
@@ -2874,7 +3208,7 @@ function renderComparison() {
           const h=h2h1[y];
           if(!h||h.games===0) return '';
           const pct=Math.round((h.w+0.5*h.t)/h.games*100);
-          const c=pct>50?colLeft:pct<50?colRight:colTie;
+          const c=pct>50?colLeft:pct<50?colRight:'#fbbf24';
           return `<span style="display:inline-block;margin:2px 6px;font-size:0.7rem;color:${c};font-weight:700;background:var(--bg3);padding:3px 9px;border-radius:12px">${y}: ${h.w}-${h.l}${h.t?'-'+h.t:''} (${ds(h.diff)})</span>`;
         }).join('')}
       </div>
@@ -2887,9 +3221,9 @@ function renderComparison() {
       <div style="margin-top:4px">
         ${(()=>{
           const wltWinner = cmpStat(tot1.wr, tot2.wr, true);
-          const c1 = wltWinner==='left'?colLeft:wltWinner==='tie'?colTie:'var(--text-mid)';
-          const c2 = wltWinner==='right'?colRight:wltWinner==='tie'?colTie:'var(--text-mid)';
-          return `<div class="cmp-stat-row"><div class="cmp-stat-val" style="text-align:right;color:${c1}">${tot1.w}-${tot1.l}-${tot1.t} ${winnerChip(wltWinner==='left',colLeft)}</div><div class="cmp-stat-label">W-L-T</div><div class="cmp-stat-val" style="color:${c2}">${winnerChip(wltWinner==='right',colRight)} ${tot2.w}-${tot2.l}-${tot2.t}</div></div>`;
+          const c1 = wltWinner==='right' ? 'var(--text-mid)' : colLeft;
+          const c2 = wltWinner==='left' ? 'var(--text-mid)' : colRight;
+          return `<div class="cmp-stat-row"><div class="cmp-stat-val" style="text-align:right;color:${c1}">${tot1.w}-${tot1.l}-${tot1.t} ${winnerChip(wltWinner==='left'||wltWinner==='tie',colLeft)}</div><div class="cmp-stat-label">W-L-T</div><div class="cmp-stat-val" style="color:${c2}">${winnerChip(wltWinner==='right'||wltWinner==='tie',colRight)} ${tot2.w}-${tot2.l}-${tot2.t}</div></div>`;
         })()}
         ${statRow('Games Played', tot1.games, tot2.games, true)}
         ${statRow('Point Diff', tot1.diff, tot2.diff, true, v=>ds(v))}
@@ -2902,14 +3236,21 @@ function renderComparison() {
     <div class="card" style="margin-bottom:14px">
       <div class="card-title">${ric('dice')}Doubles — Career Stats</div>
       <div style="margin-top:4px">
-        ${dblRow || `<div class="cmp-stat-row"><div class="cmp-stat-val" style="text-align:right;color:var(--text-dim)">—</div><div class="cmp-stat-label">Doubles</div><div class="cmp-stat-val" style="color:var(--text-dim)">—</div></div>`}
+        ${doublesWrRow}
+        ${doublesSosRow}
+        ${doublesWltRow}
+        ${doublesGamesRow}
         ${dblEloRow}
+        ${dblPeakEloRow}
+        ${doublesChampPtsRow}
         ${doublesBadgeRow}
         ${doublesStarRow}
+        ${partnerEloRow}
+        ${partnerWrRow}
       </div>
     </div>
 
-    <div class="card">
+    <div class="card" style="margin-bottom:14px">
       <div class="card-title">${ric('calendar')}Season by Season</div>
       <table style="width:100%;border-collapse:collapse;font-size:0.75rem">
         <thead><tr>
@@ -2920,6 +3261,18 @@ function renderComparison() {
           <th style="color:${colRight};padding:6px 10px;width:30%">${p2}</th>
         </tr></thead>
         <tbody>${yearRows}</tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">${ric('calendar')}Doubles — Season by Season</div>
+      <table style="width:100%;border-collapse:collapse;font-size:0.75rem">
+        <thead><tr>
+          <th class="r" style="color:${colLeft};padding:6px 10px;width:40%">${p1}</th>
+          <th style="text-align:center;color:var(--text-dim);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.05em;padding:6px 4px;width:20%">Year</th>
+          <th style="color:${colRight};padding:6px 10px;width:40%">${p2}</th>
+        </tr></thead>
+        <tbody>${doublesYearRows}</tbody>
       </table>
     </div>`;
 }
@@ -4212,8 +4565,8 @@ function computeRivalries() {
 }
 
 function podiumCard(icon, label, entries, sublabel) {
-  const medals = [ric('medalGold'), ric('medalSilver'), ric('medalBronze')];
-  const rows = entries.slice(0,3).map((e,i) => `
+  const medals = [ric('medalGold'), ric('medalSilver'), ric('medalBronze'), '<span class="hof-podium-rank">4</span>', '<span class="hof-podium-rank">5</span>'];
+  const rows = entries.slice(0,5).map((e,i) => `
     <div class="hof-podium-row">
       <span class="hof-podium-medal">${medals[i]}</span>
       <span class="hof-podium-name" ${e.clickable?`style="cursor:pointer" onclick="showPage('overview');showPlayerDetail('${e.clickable}')"`:''}>${e.name}</span>
@@ -4234,56 +4587,125 @@ function renderHallOfFame() {
   const champYears = YEARS.filter(y => {
     const entries = Object.values(DATA.year_stats[y]||{});
     return entries.some(e => e.pos===1);
-  }).sort((a,b)=>b-a);
+  });
 
-  let champHtml = champYears.map(y => {
+  const champEntries = [];
+  champYears.forEach(y => {
     const champion = PLAYERS.find(p => DATA.year_stats[y][p]?.pos===1);
     const finalist = PLAYERS.find(p => DATA.year_stats[y][p]?.pos===2);
     const cs = DATA.year_stats[y][champion];
-    return `<div class="hof-champion-card">
+    champEntries.push({
+      year: y, order: 1, // Christmas happens after that year's Summer Classic
+      html: `<div class="hof-champion-card">
+      <span class="hof-champion-badge singles">Singles</span>
       <div class="hof-champion-year">${y}</div>
       <div style="font-size:1.8rem">${ric('trophy', 28)}</div>
       <div class="hof-champion-name">${champion}</div>
       <div class="hof-champion-sub">${cs.w}-${cs.l}${cs.t?'-'+cs.t:''} (${cs.wr}%)${finalist?` &middot; beat ${finalist}`:''}</div>
-    </div>`;
-  }).join('');
+    </div>`
+    });
+  });
+
+  // Doubles (Summer Classic) champions, same gallery, visually distinct so the two
+  // formats are never confused for one another.
+  const doublesChampYears = DOUBLES_YEARS.filter(y => (DOUBLES_STANDINGS[y]||[]).some(s=>s.pos===1));
+  doublesChampYears.forEach(y => {
+    const standings = DOUBLES_STANDINGS[y];
+    const champ = standings.find(s=>s.pos===1);
+    const finalist = standings.find(s=>s.pos===2);
+    const champTeam = DOUBLES_TEAMS.find(t=>t.key===champ.team);
+    const champNames = champTeam ? champTeam.players.join(' & ') : champ.team;
+    const finalistTeam = finalist ? DOUBLES_TEAMS.find(t=>t.key===finalist.team) : null;
+    const finalistNames = finalistTeam ? finalistTeam.players.join(' & ') : (finalist ? finalist.team : null);
+    champEntries.push({
+      year: y, order: 0, // Summer Classic happens before that year's Christmas Championship
+      html: `<div class="hof-champion-card doubles">
+      <span class="hof-champion-badge doubles">Doubles</span>
+      <div class="hof-champion-year">${y}</div>
+      <div style="font-size:1.8rem">${ric('trophy', 28)}</div>
+      <div class="hof-champion-name" style="font-size:1.15rem">${champNames}</div>
+      <div class="hof-champion-sub">${champ.w}-${champ.l} (${champ.wr}%)${finalistNames?` &middot; beat ${finalistNames}`:''}</div>
+    </div>`
+    });
+  });
+
+  // Chronological order: oldest first, and within a year Summer Classic (doubles)
+  // precedes that year's Christmas Championship (singles).
+  champEntries.sort((a,b) => a.year - b.year || a.order - b.order);
+  const champHtml = champEntries.map(e => e.html).join('');
 
   // ── Hall of Records: 9 podium categories + 2 detail tables ──
-  function top3(list, valFn, fmtFn) {
+  function top5(list, valFn, fmtFn) {
     return [...list].filter(p=>valFn(p)>0 || valFn(p)===0)
-      .sort((a,b)=>valFn(b)-valFn(a)).slice(0,3)
+      .sort((a,b)=>valFn(b)-valFn(a)).slice(0,5)
       .map(p => ({name:p, detail:fmtFn(p), clickable:p}));
   }
 
   const champCard = podiumCard(ric('crown'),'Most Championships',
-    top3(PLAYERS, p=>YEARS.filter(y=>DATA.year_stats[y][p]?.pos===1).length, p=>{
+    top5(PLAYERS, p=>YEARS.filter(y=>DATA.year_stats[y][p]?.pos===1).length, p=>{
       const n = YEARS.filter(y=>DATA.year_stats[y][p]?.pos===1).length;
       return `${n} title${n===1?'':'s'}`;
     }));
 
   const pointsCard = podiumCard(ric('gem'),'Career Championship Points',
-    top3(PLAYERS, p=>CHAMP_POINTS[p]||0, p=>`${CHAMP_POINTS[p]||0} pts`));
+    top5(PLAYERS, p=>CHAMP_POINTS[p]||0, p=>`${CHAMP_POINTS[p]||0} pts`));
 
   const peakEloCard = podiumCard(ric('mountain'),'All-Time Peak Elo',
-    top3(PLAYERS, p=>ELO_DATA.peak_elo[p]??1500, p=>(ELO_DATA.peak_elo[p]??1500).toFixed(0)));
+    top5(PLAYERS, p=>ELO_DATA.peak_elo[p]??1500, p=>(ELO_DATA.peak_elo[p]??1500).toFixed(0)));
 
   const wrEligible = PLAYERS.filter(p=>getAllStats(p).games>=10);
   const winRateCard = podiumCard(ric('logs'),'Best Career Win%',
-    top3(wrEligible, p=>getAllStats(p).wr, p=>`${getAllStats(p).wr}%`), 'min. 10 games played');
+    top5(wrEligible, p=>getAllStats(p).wr, p=>`${getAllStats(p).wr}%`), 'min. 10 games played');
 
   const streaks = computeWinStreaks();
   const streakCard = podiumCard(ric('flame'),'Longest Win Streak',
-    top3(PLAYERS, p=>streaks[p].longest, p=>`${streaks[p].longest} straight`));
+    top5(PLAYERS, p=>streaks[p].longest, p=>`${streaks[p].longest} straight`));
 
   const gamesCard = podiumCard(ric('dice'),'Most Games Played',
-    top3(PLAYERS, p=>getAllStats(p).games, p=>`${getAllStats(p).games} games`));
+    top5(PLAYERS, p=>getAllStats(p).games, p=>`${getAllStats(p).games} games`));
 
-  // Doubles Elo leader (teams, not individual players)
-  const doublesElo = computeDoublesElo();
-  const teamKeys = DOUBLES_TEAMS.map(t=>t.key);
-  const doublesEntries = [...teamKeys].sort((a,b)=>(doublesElo.elo[b]??1500)-(doublesElo.elo[a]??1500)).slice(0,3)
-    .map(t => ({name:t, detail:(doublesElo.elo[t]??1500).toFixed(0), clickable:null}));
-  const doublesCard = podiumCard(ric('sun'),'Doubles Elo Leader', doublesEntries, 'Summer Classic teams');
+  // Best single-season team record (e.g. Owen/Ronan's 7-1, 87.5% run) — lets you
+  // compare team performances across different Summer Classic years directly,
+  // which is a more readable "who had the best run" stat than raw team Elo.
+  const teamSeasonResults = [];
+  DOUBLES_YEARS.forEach(y => {
+    (DOUBLES_STANDINGS[y]||[]).forEach(s => {
+      const team = DOUBLES_TEAMS.find(t=>t.key===s.team);
+      const names = team ? team.players.join('/') : s.team;
+      teamSeasonResults.push({name:`${names} (${y})`, wr:s.wr, margin:s.w-s.l, detail:`${s.w}-${s.l} (${s.wr}%)`});
+    });
+  });
+  const bestTeamEntries = teamSeasonResults
+    .sort((a,b) => b.wr-a.wr || b.margin-a.margin)
+    .slice(0,5)
+    .map(r => ({name:r.name, detail:r.detail, clickable:null}));
+  const doublesCard = podiumCard(ric('sun'),'Best Team Record (single season)', bestTeamEntries, 'Summer Classic, by win% — compare across years');
+
+  // Individual doubles records, mirroring the equivalent singles cards. Deliberately
+  // scoped to PLAYERS (not every DOUBLES_TEAMS participant) so a player without a
+  // singles profile yet (e.g. a trio's third member) never ends up in a leaderboard
+  // that links to a profile page that doesn't exist.
+  const de = computeDoublesEloIndividual();
+  const rec = computeDoublesPlayerRecords();
+
+  const doublesChampCard = podiumCard(ric('crown'),'Most Doubles Championships',
+    top5(PLAYERS, p => (rec[p]?.finishHistory||[]).filter(f=>f.pos===1).length, p => {
+      const n = (rec[p]?.finishHistory||[]).filter(f=>f.pos===1).length;
+      return `${n} title${n===1?'':'s'}`;
+    }));
+
+  const doublesPointsCard = podiumCard(ric('gem'),'Career Doubles Championship Points',
+    top5(PLAYERS, p => rec[p]?.champPoints||0, p => `${rec[p]?.champPoints||0} pts`));
+
+  const doublesPeakEloCard = podiumCard(ric('mountain'),'All-Time Peak Doubles Elo',
+    top5(PLAYERS, p => de.peak_elo[p]??1500, p => (de.peak_elo[p]??1500).toFixed(0)));
+
+  const doublesGamesCard = podiumCard(ric('dice'),'Most Doubles Games Played',
+    top5(PLAYERS, p => rec[p]?.games||0, p => `${rec[p]?.games||0} games`));
+
+  const doublesWrEligible = PLAYERS.filter(p => (rec[p]?.games||0) >= 8);
+  const doublesWinRateCard = podiumCard(ric('logs'),'Best Career Doubles Win%',
+    top5(doublesWrEligible, p => rec[p]?.wr??0, p => `${rec[p]?.wr}%`), 'min. 8 games played');
 
   // Biggest single-year Elo gain
   const traj = computeFullEloHistory();
@@ -4301,7 +4723,7 @@ function renderHallOfFame() {
   });
   gains.sort((a,b)=>b.gain-a.gain);
   const gainCard = podiumCard(ric('mountain'),'Biggest Single-Year Elo Gain',
-    gains.slice(0,3).map(g=>({name:`${g.p} (${g.y})`, detail:`+${g.gain.toFixed(0)}`, clickable:g.p})));
+    gains.slice(0,5).map(g=>({name:`${g.p} (${g.y})`, detail:`+${g.gain.toFixed(0)}`, clickable:g.p})));
 
   // Odds Defying: gap between predicted finish rank (by Elo entering the year) and actual finish position
   const oddsResults = [];
@@ -4326,7 +4748,7 @@ function renderHallOfFame() {
   });
   oddsResults.sort((a,b)=>b.diff-a.diff);
   const oddsCard = podiumCard(ric('dice'),'Odds Defying',
-    oddsResults.slice(0,3).map(r => ({
+    oddsResults.slice(0,5).map(r => ({
       name:`${r.p} (${r.y})`,
       detail:`predicted #${r.predictedRank} &rarr; ${r.finish}`,
       clickable:r.p
@@ -4354,6 +4776,84 @@ function renderHallOfFame() {
       <td class="r" style="font-weight:800;color:var(--yellow)">${b.margin}</td>
     </tr>`).join('');
 
+  const mismatchRows = RECORDS_DATA.mismatches.map(m => `
+    <tr>
+      <td style="color:var(--text-dim);font-weight:700">#${m.rank}</td>
+      <td>${m.year}</td>
+      <td style="color:var(--text-mid);font-size:0.75rem">${m.round}</td>
+      <td style="font-weight:700;color:var(--green);cursor:pointer" onclick="showPage('overview');showPlayerDetail('${m.winner}')">${m.winner} <span style="color:var(--text-dim);font-weight:400">(${m.winnerElo})</span></td>
+      <td style="font-weight:700;color:var(--red);cursor:pointer" onclick="showPage('overview');showPlayerDetail('${m.loser}')">${m.loser} <span style="color:var(--text-dim);font-weight:400">(${m.loserElo})</span></td>
+      <td class="r" style="font-weight:800;color:var(--yellow)">${m.gap.toFixed(1)}</td>
+      <td class="r">${m.score}</td>
+    </tr>`).join('');
+
+  // ── Badge Hall of Fame: top-5 leaderboards for repeatable badges, a status-badge
+  // holder list for the two badges that can't stack, and a rarest-badge ranking ──
+  const ach = computeAchievements();
+  const miniIcon = (svg) => svg ? `<span style="display:inline-block;width:18px;height:18px;overflow:hidden;vertical-align:middle"><span style="display:block;width:36px;height:36px;transform:scale(0.5);transform-origin:top left">${svg}</span></span>` : '';
+
+  function badgeEarnerCount(b) {
+    return PLAYERS.filter(p => {
+      const v = ach[p]?.badges[b.key];
+      return b.status ? !!v : (v||0) > 0;
+    }).length;
+  }
+
+  const repeatableBadges = ACHIEVEMENT_BADGES.filter(b => !b.status);
+  const statusBadges = ACHIEVEMENT_BADGES.filter(b => b.status);
+
+  const badgeLeaderboardCards = repeatableBadges.map(b => {
+    const entries = PLAYERS
+      .map(p => ({p, n: ach[p]?.badges[b.key] || 0}))
+      .filter(e => e.n > 0)
+      .sort((a,b2) => b2.n - a.n)
+      .slice(0,5)
+      .map(e => ({name: e.p, detail: `&times;${e.n}`, clickable: e.p}));
+    return podiumCard(miniIcon(ACHIEVEMENT_ICONS[b.key]), b.name, entries, b.desc);
+  }).join('');
+
+  const statusBadgeCards = statusBadges.map(b => {
+    const earners = PLAYERS.filter(p => ach[p]?.badges[b.key]);
+    const list = earners.length
+      ? earners.map(p=>`<span class="pill pill-day2" style="cursor:pointer;margin:2px 4px 2px 0;display:inline-block" onclick="showPage('overview');showPlayerDetail('${p}')">${p}</span>`).join('')
+      : `<div style="color:var(--text-dim);font-size:0.75rem;padding:4px 0">Nobody yet</div>`;
+    return `<div class="hof-podium-card">
+      <div class="hof-podium-header"><span class="hof-podium-icon">${miniIcon(ACHIEVEMENT_ICONS[b.key])}</span><span class="hof-podium-label">${b.name}</span></div>
+      <div class="hof-podium-sublabel">${b.desc} &mdash; a status, not a stackable count, so no top-5 here</div>
+      <div style="margin-top:6px">${list}</div>
+    </div>`;
+  }).join('');
+
+  const totalBadgeCountCard = podiumCard(ric('trophy'), 'Most Decorated (Total Badge Count)',
+    top5(PLAYERS, p => Object.values(ach[p]?.badges||{}).reduce((s,v)=>s+(typeof v==='number'?v:(v?1:0)),0),
+      p => { const n = Object.values(ach[p]?.badges||{}).reduce((s,v)=>s+(typeof v==='number'?v:(v?1:0)),0); return `${n} total`; }),
+    'sum of every badge earned, repeats included');
+
+  const rarityRanked = ACHIEVEMENT_BADGES
+    .map(b => ({b, n: badgeEarnerCount(b)}))
+    .sort((a,b2) => a.n - b2.n || a.b.name.localeCompare(b2.b.name));
+  const rarestEntries = rarityRanked.slice(0,5).map(r => ({
+    name: `${miniIcon(ACHIEVEMENT_ICONS[r.b.key])} ${r.b.name}`,
+    detail: `${r.n} player${r.n===1?'':'s'} (${Math.round(r.n/PLAYERS.length*100)}%)`,
+    clickable: null
+  }));
+  const rarestCard = podiumCard(ric('gem'), 'Rarest Badges', rarestEntries, 'fewest players who have ever earned it, across all 17 badges');
+
+  const badgeHofHtml = `
+    <div class="card" style="margin-bottom:20px">
+      <div class="card-title">${ric('trophy')}Badge Hall of Fame${il('explain-badges-singles','What each badge means')}</div>
+      <p style="color:var(--text-dim);font-size:0.72rem;margin-bottom:14px">Top-5 leaderboards for every badge that can be earned more than once, plus who's rarest and who's most decorated overall.</p>
+      <div class="hof-podium-grid">${totalBadgeCountCard}${rarestCard}</div>
+      <div style="margin-top:16px">
+        <div class="card-title" style="font-size:0.85rem">Repeatable Badges (ranked by career count)</div>
+        <div class="hof-podium-grid">${badgeLeaderboardCards}</div>
+      </div>
+      <div style="margin-top:16px">
+        <div class="card-title" style="font-size:0.85rem">Status Badges (earned once, doesn't stack)</div>
+        <div class="hof-podium-grid">${statusBadgeCards}</div>
+      </div>
+    </div>`;
+
   // Rivalries
   const rivalries = computeRivalries().slice(0,5);
   const rivalryHtml = rivalries.map(r => {
@@ -4371,14 +4871,29 @@ function renderHallOfFame() {
 
     <div class="card" style="margin-bottom:20px">
       <div class="card-title">${ric('scroll')}Hall of Records${il('explain-hof','More on how these categories work')}</div>
+      <span class="hof-section-label singles">Singles</span>
       <div class="hof-podium-grid">
-        ${champCard}${pointsCard}${peakEloCard}${winRateCard}${streakCard}${gamesCard}${doublesCard}${gainCard}${oddsCard}
+        ${champCard}${pointsCard}${peakEloCard}${winRateCard}${streakCard}${gamesCard}${gainCard}${oddsCard}
+      </div>
+      <div style="margin-top:18px">
+        <span class="hof-section-label doubles">Doubles &mdash; Summer Classic</span>
+        <div class="hof-podium-grid">
+          ${doublesCard}${doublesChampCard}${doublesPointsCard}${doublesPeakEloCard}${doublesGamesCard}${doublesWinRateCard}
+        </div>
       </div>
       <div style="margin-top:16px">
         <div class="card-title" style="font-size:0.85rem">${ric('dice')}Greatest Upsets (biggest Elo disparity, lower-rated player won)</div>
         <div class="tbl-wrap"><table>
           <thead><tr><th>#</th><th>Year</th><th>Round</th><th>Winner (Elo)</th><th>Loser (Elo)</th><th class="r">Gap</th><th class="r">Score</th></tr></thead>
           <tbody>${upsetRows}</tbody>
+        </table></div>
+      </div>
+      <div style="margin-top:16px">
+        <div class="card-title" style="font-size:0.85rem">🥊 Unfair Matchups (biggest Elo disparity, higher-rated player won)</div>
+        <p style="color:var(--text-dim);font-size:0.72rem;margin-bottom:8px">The flip side of Greatest Upsets &mdash; these are the most lopsided pairings on paper where the favorite actually held serve.</p>
+        <div class="tbl-wrap"><table>
+          <thead><tr><th>#</th><th>Year</th><th>Round</th><th>Winner (Elo)</th><th>Loser (Elo)</th><th class="r">Gap</th><th class="r">Score</th></tr></thead>
+          <tbody>${mismatchRows}</tbody>
         </table></div>
       </div>
       <div style="margin-top:16px">
@@ -4390,6 +4905,8 @@ function renderHallOfFame() {
       </div>
     </div>
 
+    ${badgeHofHtml}
+
     <div class="card">
       <div class="card-title">${ric('swords')}Biggest Rivalries (most games played)</div>
       ${rivalryHtml}
@@ -4400,7 +4917,7 @@ function renderHallOfFame() {
 // ── NAV ──────────────────────────────────────────────────────────────────────
 function showPage(name) {
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab:not(.sub-tab)').forEach((t,i)=>t.classList.toggle('active',['overview','christmas','summer','compare','explain','hof','photos'][i]===name));
+  document.querySelectorAll('.nav-tab:not(.sub-tab)').forEach((t,i)=>t.classList.toggle('active',['overview','christmas','summer','compare','explain','hof','photos','updates'][i]===name));
   document.getElementById('page-'+name).classList.add('active');
 
   document.getElementById('christmas-subnav').style.display = name==='christmas' ? 'flex' : 'none';
@@ -4578,13 +5095,14 @@ function renderTournamentRecap() {
 
 function showSummerSubPage(name) {
   document.querySelectorAll('#page-summer .subpage').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('#summer-subnav .sub-tab').forEach((t,i)=>t.classList.toggle('active',['dh2h','drecap','dhistory','delo','2026teams'][i]===name));
+  document.querySelectorAll('#summer-subnav .sub-tab').forEach((t,i)=>t.classList.toggle('active',['leaderboard','dh2h','drecap','dhistory','delo','2026teams'][i]===name));
   document.getElementById('sc-'+name).classList.add('active');
 }
 
 // Init
 renderOverview();
 renderPhotos();
+renderUpdates();
 renderChristmasLeaderboard();
 renderTournamentRecap();
 renderMatrix();
@@ -4597,6 +5115,7 @@ renderExplainReferenceTables();
 renderLeaderboardHistory();
 renderDoublesH2H();
 renderSummerRecap();
+renderSummerLeaderboard();
 renderDoublesHistory();
 renderDoublesEloHistory();
 </script>
