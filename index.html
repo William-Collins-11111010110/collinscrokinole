@@ -297,7 +297,6 @@ h2 { font-size: 0.85rem; font-weight: 700; color: var(--text-mid); margin-bottom
   <button class="nav-tab sub-tab" onclick="showSummerSubPage('drecap')">Tournament Recap</button>
   <button class="nav-tab sub-tab" onclick="showSummerSubPage('dhistory')">Full Game History</button>
   <button class="nav-tab sub-tab" onclick="showSummerSubPage('delo')"><svg width="14" height="14" viewBox="0 0 32 32" style="vertical-align:-2px;margin-right:2px"><path d="M4 26 L12 10 L16 17 L20 8 L28 26 Z" fill="#5c6b47" stroke="#33401f" stroke-width="1.2" stroke-linejoin="round"/><path d="M20 8 L23 14 L17 14 Z" fill="#f4e4c1"/><path d="M12 10 L14.5 15 L9.5 15 Z" fill="#f4e4c1"/><path d="M4 26 L28 26" stroke="#33401f" stroke-width="0.8" opacity="0.5"/></svg>Elo History</button>
-  <button class="nav-tab sub-tab" onclick="showSummerSubPage('2026teams')">2026 Teams</button>
 </div>
 
 <!-- OVERVIEW PAGE -->
@@ -428,14 +427,6 @@ h2 { font-size: 0.85rem; font-weight: 700; color: var(--text-mid); margin-bottom
         SOS = &Sigma;(Opponent's Win% &times; Games vs that Opponent) / Total Games Played
       </div>
       <p style="margin-top:10px;margin-bottom:0">The "per-year" SOS shown in the season results table only uses that specific year's opponent win rates (not their career win rate), so it reflects the field strength for that particular tournament.</p>
-    </div>
-  </div>
-
-  <div class="card" id="explain-doubles-balance" style="margin-bottom:16px">
-    <div class="card-title"><svg width="14" height="14" viewBox="0 0 24 24" style="vertical-align:-2px;margin-right:2px"><path d="M1.5 11.5 L6.5 7.8 L10.5 9.8 L7.5 15.5 L2.5 15.5 Z" fill="#c99a4e" stroke="#5c3620" stroke-width="1"/><path d="M22.5 11.5 L17.5 7.8 L13.5 9.8 L16.5 15.5 L21.5 15.5 Z" fill="#a5763a" stroke="#5c3620" stroke-width="1"/><path d="M10.5 9.8 L13.5 9.8 L15.5 12.2 L12 15.5 L8.5 12.2 Z" fill="#e5c477" stroke="#5c3620" stroke-width="1" stroke-linejoin="round"/></svg>Doubles Team Balancing</div>
-    <div style="font-size:0.78rem;color:var(--text-mid);line-height:1.8">
-      <p style="margin-bottom:10px">All 16 players are ranked by current Elo rating, then paired using <strong>snake seeding</strong>: rank 1 pairs with rank 16, rank 2 with rank 15, rank 3 with rank 14, and so on down to rank 8 pairing with rank 9. This puts the strongest player on the same team as the weakest, aiming to make every team's combined average rating as close as possible.</p>
-      <p style="margin-bottom:0">Oakes (no game history) is excluded from doubles team generation since the original doubles format was built for the 16-player league before Oakes joined.</p>
     </div>
   </div>
 
@@ -638,28 +629,12 @@ h2 { font-size: 0.85rem; font-weight: 700; color: var(--text-mid); margin-bottom
 
   <div id="sc-drecap" class="subpage">
     <div id="summer-recap-content"></div>
-  </div>
-
-  <div id="sc-2026teams" class="subpage">
-    <div class="card" style="margin-bottom:14px">
-      <div class="card-title">2026 Teams — Elo-Based Snake Seeding <span class="info-link" title="How doubles team balancing works" onclick="event.stopPropagation();goToExplain('explain-doubles-balance')">i</span></div>
-      <p style="font-size:0.72rem;color:var(--text-dim);line-height:1.6">
-        8 teams built by ranking all 16 players by current Elo rating and snake-seeding (1+16, 2+15, 3+14 ... 8+9)
-        so the strongest and weakest players are paired together, balancing each team's combined rating.
-      </p>
-    </div>
-    <div class="card" style="margin-bottom:16px">
-      <div class="card-title">Team Balance Overview</div>
-      <div id="doubles-balance-bars"></div>
-    </div>
-    <div class="overview-grid" id="doubles-teams-grid"></div>
-
     <div id="doubles-history-note" style="margin-top:20px"></div>
   </div>
 
   <div id="sc-dhistory" class="subpage">
     <div class="card">
-      <div class="card-title">Full Match History — 2025 Summer Classic</div>
+      <div class="card-title">Full Match History — All Summer Classics</div>
       <div id="doubles-history-content"></div>
     </div>
   </div>
@@ -878,7 +853,7 @@ const PLAYER_PHOTOS = {"Owen": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABA
 
 const YEARS = DATA.years;
 
-const PHOTOS = {"2007": [{"src": "photos/2007/01.jpg", "date": "2007-02-24"}], "2008": [{"src": "photos/2008/01.jpg", "date": "2008-12-26"}, {"src": "photos/2008/02.jpg", "date": "2008-12-26"}], "2009": [{"src": "photos/2009/01.jpg", "date": "2009-12-28"}, {"src": "photos/2009/02.jpg", "date": "2009-12-28"}], "2014": [{"src": "photos/2014/01.jpg", "date": "2014-12-28"}, {"src": "photos/2014/02.jpg", "date": "2014-12-28"}, {"src": "photos/2014/03.jpg", "date": "2014-12-28"}], "2016": [{"src": "photos/2016/01.jpg", "date": "2016-12-26"}, {"src": "photos/2016/02.jpg", "date": "2016-12-26"}], "2022": [{"src": "photos/2022/01.jpg", "date": "2022-12-31"}, {"src": "photos/2022/02.jpg", "date": "2022-12-31"}], "2023": [{"src": "photos/2023/01.jpg", "date": "2023-12-28"}, {"src": "photos/2023/02.jpg", "date": "2023-12-28"}, {"src": "photos/2023/03.jpg", "date": "2023-12-28"}, {"src": "photos/2023/04.jpg", "date": "2023-12-28"}, {"src": "photos/2023/05.jpg", "date": "2023-12-29"}, {"src": "photos/2023/06.jpg", "date": "2023-12-29"}, {"src": "photos/2023/07.jpg", "date": "2023-12-28"}, {"src": "photos/2023/08.jpg", "date": "2023-12-28"}], "2024": [{"src": "photos/2024/01.jpg", "date": "2024-12-27"}, {"src": "photos/2024/02.jpg", "date": "2024-12-27"}, {"src": "photos/2024/03.jpg", "date": "2024-12-28"}, {"src": "photos/2024/04.jpg", "date": "2024-12-28"}, {"src": "photos/2024/05.jpg", "date": "2024-12-28"}, {"src": "photos/2024/06.jpg", "date": "2024-12-28"}, {"src": "photos/2024/07.jpg", "date": "2024-12-28"}, {"src": "photos/2024/08.jpg", "date": "2024-12-28"}, {"src": "photos/2024/09.jpg", "date": "2024-12-28"}], "2025": [{"src": "photos/2025/01.jpg", "date": "2025-06-07"}, {"src": "photos/2025/02.jpg", "date": "2025-08-02"}, {"src": "photos/2025/03.jpg", "date": "2025-08-02"}, {"src": "photos/2025/04.jpg", "date": "2025-08-02"}, {"src": "photos/2025/05.jpg", "date": "2025-08-02"}, {"src": "photos/2025/06.jpg", "date": "2025-12-26"}, {"src": "photos/2025/07.jpg", "date": "2025-12-27"}, {"src": "photos/2025/08.jpg", "date": "2025-12-27"}, {"src": "photos/2025/09.jpg", "date": "2025-12-27"}, {"src": "photos/2025/10.jpg", "date": "2025-12-27"}, {"src": "photos/2025/11.jpg", "date": "2025-12-27"}, {"src": "photos/2025/12.jpg", "date": "2025-12-27"}, {"src": "photos/2025/13.jpg", "date": "2025-12-27"}, {"src": "photos/2025/14.jpg", "date": "2025-12-27"}, {"src": "photos/2025/15.jpg", "date": "2025-12-27"}, {"src": "photos/2025/16.jpg", "date": "2025-12-27"}, {"src": "photos/2025/17.jpg", "date": "2025-12-27"}, {"src": "photos/2025/18.jpg", "date": "2025-12-27"}], "2026": [{"src": "photos/2026/01.jpg", "date": "2026-03-21"}, {"src": "photos/2026/02.jpg", "date": "2026-06-06"}]};
+const PHOTOS = {"2007": [{"src": "photos/2007/01.jpg", "date": "2007-02-24"}], "2008": [{"src": "photos/2008/01.jpg", "date": "2008-12-26"}, {"src": "photos/2008/02.jpg", "date": "2008-12-26"}], "2009": [{"src": "photos/2009/01.jpg", "date": "2009-12-28"}, {"src": "photos/2009/02.jpg", "date": "2009-12-28"}], "2014": [{"src": "photos/2014/01.jpg", "date": "2014-12-28"}, {"src": "photos/2014/02.jpg", "date": "2014-12-28"}, {"src": "photos/2014/03.jpg", "date": "2014-12-28"}], "2016": [{"src": "photos/2016/01.jpg", "date": "2016-12-26"}, {"src": "photos/2016/02.jpg", "date": "2016-12-26"}], "2022": [{"src": "photos/2022/01.jpg", "date": "2022-12-31"}, {"src": "photos/2022/02.jpg", "date": "2022-12-31"}], "2023": [{"src": "photos/2023/01.jpg", "date": "2023-12-28"}, {"src": "photos/2023/02.jpg", "date": "2023-12-28"}, {"src": "photos/2023/03.jpg", "date": "2023-12-28"}, {"src": "photos/2023/04.jpg", "date": "2023-12-28"}, {"src": "photos/2023/05.jpg", "date": "2023-12-29"}, {"src": "photos/2023/06.jpg", "date": "2023-12-29"}, {"src": "photos/2023/07.jpg", "date": "2023-12-28"}, {"src": "photos/2023/08.jpg", "date": "2023-12-28"}], "2024": [{"src": "photos/2024/01.jpg", "date": "2024-12-27"}, {"src": "photos/2024/02.jpg", "date": "2024-12-27"}, {"src": "photos/2024/03.jpg", "date": "2024-12-28"}, {"src": "photos/2024/04.jpg", "date": "2024-12-28"}, {"src": "photos/2024/05.jpg", "date": "2024-12-28"}, {"src": "photos/2024/06.jpg", "date": "2024-12-28"}, {"src": "photos/2024/07.jpg", "date": "2024-12-28"}, {"src": "photos/2024/08.jpg", "date": "2024-12-28"}, {"src": "photos/2024/09.jpg", "date": "2024-12-28"}], "2025": [{"src": "photos/2025/01.jpg", "date": "2025-06-07"}, {"src": "photos/2025/02.jpg", "date": "2025-08-02"}, {"src": "photos/2025/03.jpg", "date": "2025-08-02"}, {"src": "photos/2025/04.jpg", "date": "2025-08-02"}, {"src": "photos/2025/05.jpg", "date": "2025-08-02"}, {"src": "photos/2025/06.jpg", "date": "2025-12-26"}, {"src": "photos/2025/07.jpg", "date": "2025-12-27"}, {"src": "photos/2025/08.jpg", "date": "2025-12-27"}, {"src": "photos/2025/09.jpg", "date": "2025-12-27"}, {"src": "photos/2025/10.jpg", "date": "2025-12-27"}, {"src": "photos/2025/11.jpg", "date": "2025-12-27"}, {"src": "photos/2025/12.jpg", "date": "2025-12-27"}, {"src": "photos/2025/13.jpg", "date": "2025-12-27"}, {"src": "photos/2025/14.jpg", "date": "2025-12-27"}, {"src": "photos/2025/15.jpg", "date": "2025-12-27"}, {"src": "photos/2025/16.jpg", "date": "2025-12-27"}, {"src": "photos/2025/17.jpg", "date": "2025-12-27"}, {"src": "photos/2025/18.jpg", "date": "2025-12-27"}], "2026": [{"src": "photos/2026/01.jpg", "date": "2026-03-21"}, {"src": "photos/2026/02.jpg", "date": "2026-06-06"}, {"src": "photos/2026/03.jpg", "date": "2026-08-08"}, {"src": "photos/2026/04.jpg", "date": "2026-08-08"}, {"src": "photos/2026/05.jpg", "date": "2026-08-08"}, {"src": "photos/2026/06.jpg", "date": "2026-08-08"}, {"src": "photos/2026/07.jpg", "date": "2026-08-08"}, {"src": "photos/2026/08.jpg", "date": "2026-08-08"}, {"src": "photos/2026/09.jpg", "date": "2026-08-08"}, {"src": "photos/2026/10.jpg", "date": "2026-08-08"}, {"src": "photos/2026/11.jpg", "date": "2026-08-08"}, {"src": "photos/2026/12.jpg", "date": "2026-08-08"}, {"src": "photos/2026/13.jpg", "date": "2026-08-08"}, {"src": "photos/2026/14.jpg", "date": "2026-08-08"}, {"src": "photos/2026/15.jpg", "date": "2026-08-08"}, {"src": "photos/2026/16.jpg", "date": "2026-08-08"}]};
 let PHOTOS_FLAT = [];
 
 function formatPhotoDate(dateStr) {
@@ -1578,6 +1553,14 @@ const DOUBLES_TEAMS = [
   {key:"William/Louis/Oakes", players:["William","Louis","Oakes"]},
   {key:"Bob/Amy", players:["Bob","Amy"]},
   {key:"Kathy/Bronwyn", players:["Kathy","Bronwyn"]},
+  {key:"Bob/Willow-2026", players:["Bob","Willow"]},
+  {key:"Jeff/Amy-2026", players:["Jeff","Amy"]},
+  {key:"Robynn/Jason-2026", players:["Robynn","Jason"]},
+  {key:"Kathy/Angela-2026", players:["Kathy","Angela"]},
+  {key:"Tim/Louis-2026", players:["Tim","Louis"]},
+  {key:"Maggie/Ronan-2026", players:["Maggie","Ronan"]},
+  {key:"Owen/Bronwyn-2026", players:["Owen","Bronwyn"]},
+  {key:"William/Reese/Oakes-2026", players:["William","Reese","Oakes"]},
 ];
 
 const DOUBLES_HISTORY = [
@@ -1600,6 +1583,26 @@ const DOUBLES_HISTORY = [
   [2025,'playoff','SF','Willow/Maggie','Tim/Angela','Willow/Maggie',['W','L','W']],
 
   [2025,'playoff','Final','Owen/Ronan','Willow/Maggie','Owen/Ronan',['W','L','W']],
+
+  [2026,'swiss','Round 1','Bob/Willow-2026','Tim/Louis-2026','Bob/Willow-2026',['W']],
+  [2026,'swiss','Round 1','Jeff/Amy-2026','Maggie/Ronan-2026','Jeff/Amy-2026',['W']],
+  [2026,'swiss','Round 1','Robynn/Jason-2026','William/Reese/Oakes-2026','Robynn/Jason-2026',['W']],
+  [2026,'swiss','Round 1','Kathy/Angela-2026','Owen/Bronwyn-2026','Kathy/Angela-2026',['W']],
+
+  [2026,'swiss','Round 2','Bob/Willow-2026','Robynn/Jason-2026','Bob/Willow-2026',['W']],
+  [2026,'swiss','Round 2','Jeff/Amy-2026','Kathy/Angela-2026','Jeff/Amy-2026',['W']],
+  [2026,'swiss','Round 2','Tim/Louis-2026','William/Reese/Oakes-2026','Tim/Louis-2026',['W']],
+  [2026,'swiss','Round 2','Maggie/Ronan-2026','Owen/Bronwyn-2026','Maggie/Ronan-2026',['W']],
+
+  [2026,'swiss','Round 3','William/Reese/Oakes-2026','Owen/Bronwyn-2026','William/Reese/Oakes-2026',['W']],
+  [2026,'swiss','Round 3','Maggie/Ronan-2026','Tim/Louis-2026','Maggie/Ronan-2026',['W']],
+  [2026,'swiss','Round 3','Kathy/Angela-2026','Robynn/Jason-2026','Kathy/Angela-2026',['W']],
+  [2026,'swiss','Round 3','Jeff/Amy-2026','Bob/Willow-2026','Jeff/Amy-2026',['W']],
+
+  [2026,'playoff','SF','Maggie/Ronan-2026','Jeff/Amy-2026','Maggie/Ronan-2026',['W','L','W']],
+  [2026,'playoff','SF','Bob/Willow-2026','Kathy/Angela-2026','Bob/Willow-2026',['W','W']],
+
+  [2026,'playoff','Final','Bob/Willow-2026','Maggie/Ronan-2026','Bob/Willow-2026',['W','W']],
 ];
 
 const DOUBLES_STANDINGS = {
@@ -1612,6 +1615,16 @@ const DOUBLES_STANDINGS = {
     {pos:6, team:'William/Louis/Oakes', w:1, l:2, wr:33.3, finish:'6th'},
     {pos:7, team:'Bob/Amy', w:1, l:2, wr:33.3, finish:'7th'},
     {pos:8, team:'Kathy/Bronwyn', w:0, l:3, wr:0.0, finish:'8th'},
+  ],
+  2026: [
+    {pos:1, team:'Bob/Willow-2026', w:6, l:1, wr:85.7, finish:ric('medalGold')+'Champions'},
+    {pos:2, team:'Maggie/Ronan-2026', w:4, l:4, wr:50.0, finish:ric('medalSilver')+'Finalists'},
+    {pos:3, team:'Jeff/Amy-2026', w:4, l:2, wr:66.7, finish:'SF'},
+    {pos:4, team:'Kathy/Angela-2026', w:2, l:3, wr:40.0, finish:'SF'},
+    {pos:5, team:'Robynn/Jason-2026', w:1, l:2, wr:33.3, finish:'5th'},
+    {pos:6, team:'Tim/Louis-2026', w:1, l:2, wr:33.3, finish:'6th'},
+    {pos:7, team:'William/Reese/Oakes-2026', w:1, l:2, wr:33.3, finish:'7th'},
+    {pos:8, team:'Owen/Bronwyn-2026', w:0, l:3, wr:0.0, finish:'8th'},
   ],
 };
 
@@ -1862,13 +1875,13 @@ function renderDoublesFullEloChart(p) {
     <line x1="${xFor(m.i)}" y1="${padT}" x2="${xFor(m.i)}" y2="${h-padB}" stroke="#1e1e2e" stroke-width="1" stroke-dasharray="3,3"/>
     <text x="${xFor(m.i)}" y="${h-8}" font-size="10" fill="#6b7280" text-anchor="start">${m.year}</text>`).join('');
 
-  // Medal markers based on this player's doubles team finish that year
+  // Medal markers based on this player's doubles team finish that specific year
   let starMarkers = '';
   yearMarkers.forEach((m,idx) => {
     const nextIdx = idx+1<yearMarkers.length ? yearMarkers[idx+1].i : traj.length;
     const lastGameOfYear = nextIdx-1;
-    const d = DATA.doubles[p];
-    const medal = (d && d.finish===1) ? 'trophy' : (d && d.finish===2) ? 'medalSilver' : null;
+    const s = getDoublesStandingForPlayerYear(p, m.year);
+    const medal = (s && s.pos===1) ? 'trophy' : (s && s.pos===2) ? 'medalSilver' : null;
     if (medal) {
       starMarkers += ricSvg(medal, xFor(lastGameOfYear), yFor(traj[lastGameOfYear].elo)-16, 16);
     }
@@ -2176,28 +2189,34 @@ function renderDoublesHistory() {
   // the derived stats (Elo, H2H, records) are attributed to individuals.
   const rounds = ['Round 1','Round 2','Round 3','SF','Final'];
   let html = '';
-  rounds.forEach(rd => {
-    const matches = DOUBLES_HISTORY.filter(m => m[2]===rd);
-    const phaseTag = matches[0][1]==='playoff' ? '<span class="pill pill-day2" style="margin-left:8px">Playoff</span>' : '<span class="pill pill-none" style="margin-left:8px">Swiss (Bo1)</span>';
-    html += `<div style="margin:14px 0 6px 0;font-size:0.75rem;font-weight:700;color:var(--text-mid)">${rd}${phaseTag}</div>
-    <div class="tbl-wrap"><table>
-      <thead><tr><th>Team 1</th><th class="r">Result</th><th></th><th class="r">Result</th><th>Team 2</th></tr></thead>
-      <tbody>`;
-    matches.forEach(([y,phase,round,t1,t2,winner,gamesArr]) => {
-      let w1=0,w2=0; gamesArr.forEach(g=>g==='W'?w1++:w2++);
-      const c1 = winner===t1?'var(--green)':'var(--red)';
-      const c2 = winner===t2?'var(--green)':'var(--red)';
-      const scoreLabel = gamesArr.length>1 ? `${w1}-${w2}` : (winner===t1?'W':'L');
-      const scoreLabel2 = gamesArr.length>1 ? `${w2}-${w1}` : (winner===t2?'W':'L');
-      html += `<tr>
-        <td style="font-weight:700;color:${c1}">${t1}</td>
-        <td class="r" style="font-weight:800;color:${c1}">${scoreLabel}</td>
-        <td style="text-align:center;color:var(--text-dim);font-size:0.7rem">vs</td>
-        <td class="r" style="font-weight:800;color:${c2}">${scoreLabel2}</td>
-        <td style="font-weight:700;color:${c2}">${t2}</td>
-      </tr>`;
+  [...DOUBLES_YEARS].sort((a,b)=>b-a).forEach(year => {
+    const yearMatches = DOUBLES_HISTORY.filter(m => m[0]===year);
+    if (yearMatches.length===0) return;
+    html += `<div style="margin:20px 0 8px 0;font-size:0.95rem;font-weight:800;color:var(--text);border-bottom:1px solid var(--border);padding-bottom:6px">${year} Summer Classic</div>`;
+    rounds.forEach(rd => {
+      const matches = yearMatches.filter(m => m[2]===rd);
+      if (matches.length===0) return;
+      const phaseTag = matches[0][1]==='playoff' ? '<span class="pill pill-day2" style="margin-left:8px">Playoff</span>' : '<span class="pill pill-none" style="margin-left:8px">Swiss (Bo1)</span>';
+      html += `<div style="margin:14px 0 6px 0;font-size:0.75rem;font-weight:700;color:var(--text-mid)">${rd}${phaseTag}</div>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Team 1</th><th class="r">Result</th><th></th><th class="r">Result</th><th>Team 2</th></tr></thead>
+        <tbody>`;
+      matches.forEach(([y,phase,round,t1,t2,winner,gamesArr]) => {
+        let w1=0,w2=0; gamesArr.forEach(g=>g==='W'?w1++:w2++);
+        const c1 = winner===t1?'var(--green)':'var(--red)';
+        const c2 = winner===t2?'var(--green)':'var(--red)';
+        const scoreLabel = gamesArr.length>1 ? `${w1}-${w2}` : (winner===t1?'W':'L');
+        const scoreLabel2 = gamesArr.length>1 ? `${w2}-${w1}` : (winner===t2?'W':'L');
+        html += `<tr>
+          <td style="font-weight:700;color:${c1}">${t1}</td>
+          <td class="r" style="font-weight:800;color:${c1}">${scoreLabel}</td>
+          <td style="text-align:center;color:var(--text-dim);font-size:0.7rem">vs</td>
+          <td class="r" style="font-weight:800;color:${c2}">${scoreLabel2}</td>
+          <td style="font-weight:700;color:${c2}">${t2}</td>
+        </tr>`;
+      });
+      html += `</tbody></table></div>`;
     });
-    html += `</tbody></table></div>`;
   });
   document.getElementById('doubles-history-content').innerHTML = html;
 }
@@ -3461,117 +3480,68 @@ function toggleMatch(matchId) {
   if(arrow) arrow.innerHTML = isOpen ? '&#9656;' : '&#9662;';
 }
 
-// ── DOUBLES TEAMS ────────────────────────────────────────────────────────────
+// ── DOUBLES HISTORY NOTE ─────────────────────────────────────────────────────
 function renderDoublesTeams() {
-  const teamColors = ["#f87171","#fb923c","#fbbf24","#a3e635","#34d399","#38bdf8","#818cf8","#e879f9"];
-  const ranked = [...PLAYERS].sort((a,b)=>(ELO_DATA.elo[b]??1500)-(ELO_DATA.elo[a]??1500));
-
-  const teams = [];
-  for (let i = 0; i < 8; i++) {
-    const a = ranked[i];
-    const b = ranked[15-i];
-    const aElo = ELO_DATA.elo[a]??1500;
-    const bElo = ELO_DATA.elo[b]??1500;
-    teams.push({
-      name: `Team ${i+1}`, color: teamColors[i],
-      players: [{name:a, rank:i+1, elo:aElo}, {name:b, rank:16-i, elo:bElo}],
-      avg: (aElo+bElo)/2
-    });
-  }
-
-  // Team cards — team label + avg above, then just the 2 player cards side by side
-  const grid = document.getElementById('doubles-teams-grid');
-  grid.innerHTML = teams.map(team => `
-    <div style="border:1px solid ${team.color}44;border-radius:12px;padding:10px">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-        <span style="font-weight:800;font-size:0.8rem;color:${team.color}">${team.name}</span>
-        <span style="font-size:0.68rem;font-weight:700;color:var(--text-mid);background:#1a1a26;padding:2px 8px;border-radius:8px">avg ${team.avg.toFixed(0)}</span>
-      </div>
-      <div style="display:flex;gap:10px">
-        ${team.players.map(pl => `
-          <div style="flex:1;background:var(--bg2);border-radius:10px;padding:12px 8px;text-align:center;cursor:pointer" onclick="showPage('overview');showPlayerDetail('${pl.name}')">
-            <div style="width:40px;height:40px;border-radius:50%;margin:0 auto 8px auto;background-image:url(${PLAYER_PHOTOS[pl.name]});background-size:cover;background-position:center"></div>
-            <div style="font-weight:700;font-size:0.82rem;color:var(--accent)">${pl.name}</div>
-            <div style="font-size:0.75rem;font-weight:700;color:${eloGradientColor(pl.elo)}">${pl.elo.toFixed(0)}</div>
-          </div>
-        `).join('')}
-      </div>
-    </div>
-  `).join('');
-
-  // Balance bars
-  const minAvg = Math.min(...teams.map(t=>t.avg));
-  const maxAvg = Math.max(...teams.map(t=>t.avg));
-  const balDiv = document.getElementById('doubles-balance-bars');
-  balDiv.innerHTML = [...teams].sort((a,b)=>b.avg-a.avg).map(team => {
-    const pct = ((team.avg-minAvg)/(maxAvg-minAvg||1))*30+70;
-    return `<div style="display:flex;align-items:center;gap:10px;margin-bottom:7px">
-      <span style="font-size:0.72rem;font-weight:700;color:${team.color};width:60px">${team.name}</span>
-      <div style="flex:1;background:#1a1a26;border-radius:4px;height:10px">
-        <div style="width:${pct}%;height:10px;border-radius:4px;background:${team.color}88"></div>
-      </div>
-      <span style="font-size:0.7rem;font-weight:700;color:var(--text-mid);width:44px;text-align:right">${team.avg.toFixed(1)}</span>
-    </div>`;
-  }).join('');
-
-  // ── Historical note: how 2025 Summer Classic pairings compared to their Elo at the time ──
+  // How each Summer Classic's pairings compared to their Elo at the time,
+  // one card per year (most recent first)
   const noteDiv = document.getElementById('doubles-history-note');
   if (noteDiv) {
-    const traj = computeFullEloHistory();
-    const eloAtSummer = {};
-    PLAYERS.forEach(pl => {
-      const t = traj[pl];
-      let entering2025 = null;
-      for (let i=0; i<t.length; i++) {
-        if (t[i].year === 2025) { entering2025 = t[i-1] ? t[i-1].elo : 1500; break; }
-      }
-      eloAtSummer[pl] = entering2025 !== null ? entering2025 : t[t.length-1].elo;
-    });
+    const YEAR_COMMENTARY = {
+      2025: `Ranking the <em>real</em> 2025 doubles pairings by each player's Elo <strong>as it stood entering 2025</strong>
+        (before that year's Christmas Championship) tells an interesting story: the eventual
+        <strong style="color:#fbbf24">champions (Owen/Ronan) had the lowest combined Elo of any team</strong>, and the
+        <strong style="color:#9ca3af">finalists (Maggie/Willow) were second-lowest</strong>. Meanwhile the two
+        highest-rated pairings on paper &mdash; Jeff/Reese and William/Louis &mdash; only managed a semifinal and a
+        6th-place finish. Pre-tournament Elo strength was almost <em>inversely</em> correlated with how the bracket
+        actually played out that year.`,
+      2026: `The second Summer Classic told almost the same story. <strong>William/Reese/Oakes</strong> carried the
+        highest combined Elo of any pairing entering 2026, yet finished 7th, while <strong>Owen/Bronwyn</strong> &mdash;
+        third-highest on paper &mdash; went winless at 0&ndash;3 for the tournament's worst finish. The eventual
+        <strong style="color:#fbbf24">champions, Bob/Willow, ranked just 5th of 8</strong> by pre-tournament Elo, and
+        <strong style="color:#9ca3af">finalists Maggie/Ronan weren't far behind at 6th</strong>. Only Jeff/Amy, who ran
+        the Swiss stage to a perfect 3&ndash;0 before falling in the semifinal, finished anywhere close to where their
+        paper rating suggested they might.`,
+    };
 
-    const seen = new Set();
-    const realTeams = [];
-    PLAYERS.forEach(pl => {
-      const d = DATA.doubles[pl];
-      if (!d) return;
-      const key = [pl, d.partner].sort().join('|');
-      if (seen.has(key)) return;
-      seen.add(key);
-      realTeams.push({
-        players: [pl, d.partner], finish: d.finish,
-        avgElo: (eloAtSummer[pl] + eloAtSummer[d.partner]) / 2
+    noteDiv.innerHTML = [...DOUBLES_YEARS].sort((a,b)=>b-a).map(year => {
+      const eloEntering = {};
+      PLAYERS.forEach(pl => { eloEntering[pl] = getSinglesEloEnteringYear(pl, year); });
+
+      const yearTeams = DOUBLES_TEAMS.filter(t => {
+        const standing = getDoublesStandingForPlayerYear(t.players[0], year);
+        return !!standing;
       });
-    });
-    realTeams.sort((a,b) => b.avgElo - a.avgElo);
+      const realTeams = yearTeams.map(t => {
+        const standing = getDoublesStandingForPlayerYear(t.players[0], year);
+        const realPlayers = t.players.filter(p => PLAYERS.includes(p));
+        const avgElo = realPlayers.reduce((s,p)=>s+eloEntering[p],0) / realPlayers.length;
+        return {players: t.players, pos: standing.pos, avgElo};
+      });
+      realTeams.sort((a,b) => b.avgElo - a.avgElo);
 
-    const rows = realTeams.map((t, i) => {
-      const isChamp = t.finish === 1;
-      const isFinalist = t.finish === 2;
-      const highlight = isChamp ? 'background:#3d280022' : isFinalist ? 'background:#1a1a2644' : '';
-      return `<tr style="${highlight}">
-        <td style="color:var(--text-dim)">#${i+1}</td>
-        <td style="font-weight:700">${t.players[0]} <span style="color:var(--text-dim)">(${eloAtSummer[t.players[0]].toFixed(0)})</span> + ${t.players[1]} <span style="color:var(--text-dim)">(${eloAtSummer[t.players[1]].toFixed(0)})</span></td>
-        <td class="r" style="font-weight:700;color:var(--text-mid)">${t.avgElo.toFixed(1)}</td>
-        <td class="r">${t.finish===1?ric('trophy'):t.finish===2?ric('medalSilver'):''}${DATA.doubles_finish_labels[t.finish]}</td>
-      </tr>`;
-    }).join('');
+      const rows = realTeams.map((t, i) => {
+        const isChamp = t.pos === 1, isFinalist = t.pos === 2;
+        const highlight = isChamp ? 'background:#3d280022' : isFinalist ? 'background:#1a1a2644' : '';
+        const label = DATA.doubles_finish_labels[t.pos] || `${t.pos}th`;
+        const playerLabel = t.players.map(p => PLAYERS.includes(p) ? `${p} <span style="color:var(--text-dim)">(${eloEntering[p].toFixed(0)})</span>` : p).join(' + ');
+        return `<tr style="${highlight}">
+          <td style="color:var(--text-dim)">#${i+1}</td>
+          <td style="font-weight:700">${playerLabel}</td>
+          <td class="r" style="font-weight:700;color:var(--text-mid)">${t.avgElo.toFixed(1)}</td>
+          <td class="r">${isChamp?ric('trophy'):isFinalist?ric('medalSilver'):''}${label}</td>
+        </tr>`;
+      }).join('');
 
-    noteDiv.innerHTML = `
-      <div class="card">
-        <div class="card-title">📉 2025 Summer Classic — Pre-Tournament Elo vs. Actual Results</div>
-        <p style="font-size:0.75rem;color:var(--text-mid);line-height:1.6;margin-bottom:12px">
-          Ranking the <em>real</em> 2025 doubles pairings by each player's Elo <strong>as it stood entering 2025</strong>
-          (before that year's Christmas Championship) tells an interesting story: the eventual
-          <strong style="color:#fbbf24">champions (Owen/Ronan) had the lowest combined Elo of any team</strong>, and the
-          <strong style="color:#9ca3af">finalists (Maggie/Willow) were second-lowest</strong>. Meanwhile the two
-          highest-rated pairings on paper &mdash; Jeff/Reese and William/Louis &mdash; only managed a semifinal and a
-          6th-place finish. Pre-tournament Elo strength was almost <em>inversely</em> correlated with how the bracket
-          actually played out that year.
-        </p>
+      return `
+      <div class="card" style="margin-bottom:16px">
+        <div class="card-title">📉 ${year} Summer Classic — Pre-Tournament Elo vs. Actual Results</div>
+        <p style="font-size:0.75rem;color:var(--text-mid);line-height:1.6;margin-bottom:12px">${YEAR_COMMENTARY[year] || ''}</p>
         <div class="tbl-wrap"><table>
-          <thead><tr><th>Rank by Elo</th><th>Team (Elo entering 2025)</th><th class="r">Avg Elo</th><th class="r">Actual Finish</th></tr></thead>
+          <thead><tr><th>Rank by Elo</th><th>Team (Elo entering ${year})</th><th class="r">Avg Elo</th><th class="r">Actual Finish</th></tr></thead>
           <tbody>${rows}</tbody>
         </table></div>
       </div>`;
+    }).join('');
   }
 }
 
@@ -5043,6 +5013,21 @@ const SUMMER_RECAPS = {
     <br><br>
     The Swiss stage was tightly bunched behind the eventual champions: Willow/Maggie, Tim/Angela, and Jeff/Reese all finished 2&ndash;1 to fill out the other three playoff spots. At the other end of the table, <strong>Kathy/Bronwyn</strong> went winless at 0&ndash;3, while <strong>Bob/Amy</strong> and <strong>William/Louis/Oakes</strong> &mdash; the tournament's lone trio, splitting duties as a three-player team &mdash; each finished 1&ndash;2. The field of 8 teams, and the three-person experiment in particular, set the template for what the Summer Classic could grow into in future years.`,
   },
+  2026: {
+    title: 'Bob/Willow Take the Title as Every Partnership Gets Reshuffled',
+    subtitle: 'Bob/Willow 6-1 (85.7%) &middot; d. Maggie/Ronan in the Final',
+    stats: [
+      {label:'Champions', value:'Bob/Willow'},
+      {label:'Runner-up', value:'Maggie/Ronan'},
+      {label:'Format', value:'3-round Swiss, top 4 to playoffs'},
+      {label:'Teams', value:'8 (one a trio: William/Reese/Oakes)'},
+    ],
+    body: `With every doubles pairing reshuffled from the inaugural year, <strong>Bob/Willow</strong> emerged as the second Summer Classic's champions, going 6&ndash;1 overall and closing it out with a clean 2&ndash;0 sweep of <strong>Maggie/Ronan</strong> in the final.
+    <br><br>
+    The tournament's biggest story was the semifinal upset: <strong>Jeff/Amy</strong> ran the table in Swiss at a perfect 3&ndash;0 to claim the top seed, only to fall to fourth-seeded <strong>Maggie/Ronan</strong> 2 games to 1 in the semifinal. Bob/Willow, seeded second, took care of business on the other side of the bracket, sweeping third-seeded <strong>Kathy/Angela</strong> 2&ndash;0 to reach the final.
+    <br><br>
+    <strong>Robynn/Jason</strong> was the only pairing to run it back from 2025, finishing 1&ndash;2 in Swiss and just missing the playoffs. At the bottom of the table, <strong>Owen/Bronwyn</strong> went winless at 0&ndash;3 &mdash; a rough summer for Owen, who partnered Ronan to the title just one year earlier. <strong>William/Reese/Oakes</strong> reprised the trio format from 2025 (with Reese stepping in for Louis alongside William and Oakes) and again finished 1&ndash;2.`,
+  },
 };
 
 function renderSummerRecap() {
@@ -5095,7 +5080,7 @@ function renderTournamentRecap() {
 
 function showSummerSubPage(name) {
   document.querySelectorAll('#page-summer .subpage').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('#summer-subnav .sub-tab').forEach((t,i)=>t.classList.toggle('active',['leaderboard','dh2h','drecap','dhistory','delo','2026teams'][i]===name));
+  document.querySelectorAll('#summer-subnav .sub-tab').forEach((t,i)=>t.classList.toggle('active',['leaderboard','dh2h','drecap','dhistory','delo'][i]===name));
   document.getElementById('sc-'+name).classList.add('active');
 }
 
